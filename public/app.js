@@ -222,28 +222,40 @@ class ClearinghouseApp {
         card.style.background = "var(--bg-secondary)";
         card.style.border = "1px solid var(--border-color)";
         card.style.borderRadius = "var(--radius-md)";
-        card.style.padding = "1rem";
+        card.style.padding = "1.1rem";
 
         const title = document.createElement("div");
         title.style.fontWeight = "700";
+        title.style.fontSize = "14px";
         title.style.color = "#fff";
-        title.style.marginBottom = "4px";
+        title.style.marginBottom = "3px";
         title.textContent = loc.name;
 
         const territory = document.createElement("div");
-        territory.style.fontSize = "12px";
+        territory.style.fontSize = "11px";
         territory.style.color = "var(--text-secondary)";
         territory.style.marginBottom = "8px";
         territory.textContent = loc.jurisdiction_territory;
 
+        const zoneSchedule = document.createElement("div");
+        zoneSchedule.style.background = "rgba(0,0,0,0.25)";
+        zoneSchedule.style.border = "1px solid rgba(255,255,255,0.05)";
+        zoneSchedule.style.borderRadius = "var(--radius-sm)";
+        zoneSchedule.style.padding = "6px 8px";
+        zoneSchedule.style.fontSize = "11px";
+        zoneSchedule.style.marginBottom = "8px";
+        zoneSchedule.style.color = "var(--text-muted)";
+        zoneSchedule.innerHTML = `<strong>MSA Zone Schedule:</strong> Zone 1 Metro (${loc.coli_zone_tier.split(" ")[0]}): <span style="color:var(--accent-emerald); font-weight:700;">$${loc.rjpb_hourly_base.toFixed(2)}/hr</span> &bull; Rural Floor (Tier C): <span style="color:var(--text-primary);">$62.00/hr</span>`;
+
         const metaRow = document.createElement("div");
         metaRow.style.display = "flex";
         metaRow.style.justifyContent = "space-between";
-        metaRow.style.fontSize = "12px";
-        metaRow.innerHTML = `<span style="color:var(--accent-emerald); font-weight:700;">$${loc.rjpb_hourly_base.toFixed(2)}/hr RJPB (${loc.coli_zone_tier})</span><span class="mono" style="color:var(--text-muted);">${loc.active_master_count || 0} M / ${loc.active_journeyman_count} J / ${loc.active_apprentice_count} A</span>`;
+        metaRow.style.fontSize = "11px";
+        metaRow.innerHTML = `<span style="color:var(--accent-cyan); font-weight:600;">Active Trade Staffing:</span><span class="mono" style="color:#fff; font-weight:600;">${loc.active_master_count || 0} Masters &bull; ${loc.active_journeyman_count} Journeymen &bull; ${loc.active_apprentice_count} Apprentices</span>`;
 
         card.appendChild(title);
         card.appendChild(territory);
+        card.appendChild(zoneSchedule);
         card.appendChild(metaRow);
         grid.appendChild(card);
       });
