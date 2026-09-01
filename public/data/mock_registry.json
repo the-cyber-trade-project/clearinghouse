@@ -1,0 +1,289 @@
+{
+  "locals": [
+    {
+      "local_id": "LOCAL-101",
+      "name": "Local 101 - Mid-Atlantic & Northeast Hub",
+      "jurisdiction_territory": "District 1 (DC, MD, VA, DE, PA, NY, NJ, New England)",
+      "coli_zone_tier": "Tier A (High Cost-of-Living)",
+      "rjpb_hourly_base": 85.00,
+      "active_apprentice_count": 142,
+      "active_journeyman_count": 286
+    },
+    {
+      "local_id": "LOCAL-204",
+      "name": "Local 204 - Midwest & Great Lakes Hub",
+      "jurisdiction_territory": "District 2 (IL, IN, OH, MI, WI, MN, IA, MO)",
+      "coli_zone_tier": "Tier B (Standard Metropolitan)",
+      "rjpb_hourly_base": 72.00,
+      "active_apprentice_count": 98,
+      "active_journeyman_count": 194
+    },
+    {
+      "local_id": "LOCAL-302",
+      "name": "Local 302 - Pacific Northwest & West Coast Hub",
+      "jurisdiction_territory": "District 3 (WA, OR, CA, NV, ID, AK, HI)",
+      "coli_zone_tier": "Tier A (High Cost-of-Living)",
+      "rjpb_hourly_base": 92.00,
+      "active_apprentice_count": 184,
+      "active_journeyman_count": 340
+    },
+    {
+      "local_id": "LOCAL-405",
+      "name": "Local 405 - South & Gulf Coast Hub",
+      "jurisdiction_territory": "District 4 (TX, LA, MS, AL, GA, FL, TN, NC, SC)",
+      "coli_zone_tier": "Tier B (Standard Metropolitan)",
+      "rjpb_hourly_base": 78.00,
+      "active_apprentice_count": 115,
+      "active_journeyman_count": 220
+    },
+    {
+      "local_id": "LOCAL-508",
+      "name": "Local 508 - Mountain West & Plains Hub",
+      "jurisdiction_territory": "District 5 (CO, UT, AZ, NM, WY, MT, ND, SD, NE, KS)",
+      "coli_zone_tier": "Tier C (General & Rural Baseline)",
+      "rjpb_hourly_base": 62.00,
+      "active_apprentice_count": 64,
+      "active_journeyman_count": 132
+    }
+  ],
+  "employers": [
+    {
+      "pec_id": "PEC-EMP-2026-0001",
+      "name": "Arasaka Defense Systems",
+      "division": "Tier-I Critical Infrastructure",
+      "local_chapter_id": "LOCAL-302",
+      "designated_mor": "Alt Cunningham (CTP-MST-2024-0004)",
+      "journeyman_count": 6,
+      "apprentice_count": 12,
+      "ratio_compliance_score": 0.984,
+      "underwriter_tier": "Tier A Preferred Risk (35% Credit)",
+      "total_verified_hours": 38400.0
+    },
+    {
+      "pec_id": "PEC-EMP-2026-0014",
+      "name": "Militech Critical Infrastructure",
+      "division": "Defense Contractor Enclaves",
+      "local_chapter_id": "LOCAL-101",
+      "designated_mor": "McCoy Pauley (CTP-MST-2022-0001)",
+      "journeyman_count": 9,
+      "apprentice_count": 18,
+      "ratio_compliance_score": 0.991,
+      "underwriter_tier": "Tier A Preferred Risk (35% Credit)",
+      "total_verified_hours": 54200.0
+    },
+    {
+      "pec_id": "PEC-EMP-2026-0028",
+      "name": "Trauma Team International",
+      "division": "Tier-II Life Safety Healthcare Network",
+      "local_chapter_id": "LOCAL-204",
+      "designated_mor": "Judy Alvarez (CTP-JRN-2025-0411, Proxy)",
+      "journeyman_count": 4,
+      "apprentice_count": 7,
+      "ratio_compliance_score": 0.968,
+      "underwriter_tier": "Preferred Healthcare Risk (25% Credit)",
+      "total_verified_hours": 26800.0
+    },
+    {
+      "pec_id": "PEC-EMP-2026-0042",
+      "name": "Ellingson Mineral Corp",
+      "division": "Heavy Industrial & Energy Grid",
+      "local_chapter_id": "LOCAL-101",
+      "designated_mor": "McCoy Pauley (CTP-MST-2022-0001, Fractional MoR)",
+      "journeyman_count": 3,
+      "apprentice_count": 5,
+      "ratio_compliance_score": 0.942,
+      "underwriter_tier": "Standard Verified Risk (15% Credit)",
+      "total_verified_hours": 18400.0
+    },
+    {
+      "pec_id": "PEC-EMP-2026-0055",
+      "name": "Kang Tao Systems",
+      "division": "Advanced Technology & Cloud Infrastructure",
+      "local_chapter_id": "LOCAL-101",
+      "designated_mor": "Alt Cunningham (CTP-MST-2024-0004, Advisory)",
+      "journeyman_count": 5,
+      "apprentice_count": 10,
+      "ratio_compliance_score": 0.975,
+      "underwriter_tier": "Tier A Preferred Risk (35% Credit)",
+      "total_verified_hours": 32100.0
+    }
+  ],
+  "practitioners": [
+    {
+      "trade_id": "CTP-APP-2026-0884",
+      "name": "Dade Murphy",
+      "tier": "Tier 2 Apprentice",
+      "license_status": "Active",
+      "standing": "Good Standing",
+      "assigned_jatc_local": "LOCAL-101",
+      "sponsoring_employer": "Ellingson Mineral Corp",
+      "total_verified_hours": 2480.0,
+      "domain_hours": {
+        "D1_PERIMETER_CLOUD": 520.0,
+        "D2_DETECTION_SOC": 980.0,
+        "D3_IDENTITY_IAM": 420.0,
+        "D4_VULN_ATTACK": 340.0,
+        "D5_DEFENSIVE_GRC": 220.0
+      },
+      "active_endorsements": ["SE-APP"],
+      "work_modality_preference": "Hybrid",
+      "relocation_willingness": "Resident Local Only",
+      "security_clearance": "Public Trust / Commercial Unclassified",
+      "is_seeking_placement": true,
+      "days_seeking_placement": 14,
+      "dispatch_book": "Book 1 (Resident)",
+      "last_audit_date": "2026-08-15"
+    },
+    {
+      "trade_id": "CTP-APP-2026-0101",
+      "name": "Henry Dorsett Case",
+      "tier": "Tier 1 Apprentice",
+      "license_status": "Active",
+      "standing": "Good Standing",
+      "assigned_jatc_local": "LOCAL-302",
+      "sponsoring_employer": "Militech Critical Infrastructure",
+      "total_verified_hours": 1120.0,
+      "domain_hours": {
+        "D1_PERIMETER_CLOUD": 420.0,
+        "D2_DETECTION_SOC": 380.0,
+        "D3_IDENTITY_IAM": 120.0,
+        "D4_VULN_ATTACK": 100.0,
+        "D5_DEFENSIVE_GRC": 100.0
+      },
+      "active_endorsements": [],
+      "work_modality_preference": "On-Site",
+      "relocation_willingness": "National / Willing to Relocate",
+      "security_clearance": "TS/SCI (SCIF Eligible)",
+      "is_seeking_placement": true,
+      "days_seeking_placement": 38,
+      "dispatch_book": "Book 1 (Resident)",
+      "last_audit_date": "2026-08-10"
+    },
+    {
+      "trade_id": "CTP-JRN-2025-0411",
+      "name": "Judy Alvarez",
+      "tier": "Licensed Journeyman",
+      "license_status": "Active",
+      "standing": "Good Standing",
+      "assigned_jatc_local": "LOCAL-204",
+      "sponsoring_employer": "Trauma Team International",
+      "total_verified_hours": 6120.0,
+      "domain_hours": {
+        "D1_PERIMETER_CLOUD": 1200.0,
+        "D2_DETECTION_SOC": 1800.0,
+        "D3_IDENTITY_IAM": 1420.0,
+        "D4_VULN_ATTACK": 900.0,
+        "D5_DEFENSIVE_GRC": 800.0
+      },
+      "active_endorsements": ["SE-ICAM"],
+      "work_modality_preference": "Remote Only",
+      "relocation_willingness": "Resident Local Only",
+      "security_clearance": "Public Trust / Commercial Unclassified",
+      "is_seeking_placement": true,
+      "days_seeking_placement": 45,
+      "dispatch_book": "Book 1 (Resident)",
+      "last_audit_date": "2026-07-25"
+    },
+    {
+      "trade_id": "CTP-JRN-2024-0192",
+      "name": "Kate Libby",
+      "tier": "Licensed Journeyman",
+      "license_status": "Active",
+      "standing": "Good Standing",
+      "assigned_jatc_local": "LOCAL-101",
+      "sponsoring_employer": "Kang Tao Systems",
+      "total_verified_hours": 8950.0,
+      "domain_hours": {
+        "D1_PERIMETER_CLOUD": 1850.0,
+        "D2_DETECTION_SOC": 2400.0,
+        "D3_IDENTITY_IAM": 1600.0,
+        "D4_VULN_ATTACK": 1550.0,
+        "D5_DEFENSIVE_GRC": 1550.0
+      },
+      "active_endorsements": ["SE-CLD", "SE-MED"],
+      "work_modality_preference": "Any Modality",
+      "relocation_willingness": "National / Willing to Relocate",
+      "security_clearance": "Secret",
+      "is_seeking_placement": true,
+      "days_seeking_placement": 21,
+      "dispatch_book": "Book 1 (Resident)",
+      "last_audit_date": "2026-07-10"
+    },
+
+    {
+      "trade_id": "CTP-MST-2024-0004",
+      "name": "Alt Cunningham",
+      "tier": "Master Practitioner (MoR)",
+      "license_status": "Active",
+      "standing": "Good Standing",
+      "assigned_jatc_local": "LOCAL-302",
+      "sponsoring_employer": "Arasaka Defense Systems",
+      "total_verified_hours": 14200.0,
+      "domain_hours": {
+        "D1_PERIMETER_CLOUD": 2900.0,
+        "D2_DETECTION_SOC": 3800.0,
+        "D3_IDENTITY_IAM": 2600.0,
+        "D4_VULN_ATTACK": 2400.0,
+        "D5_DEFENSIVE_GRC": 2500.0
+      },
+      "active_endorsements": ["SE-ICS", "SE-AIML", "SE-DFIR"],
+      "work_modality_preference": "Any Modality",
+      "relocation_willingness": "National / Willing to Relocate",
+      "security_clearance": "TS/SCI (SCIF Eligible)",
+      "is_seeking_placement": false,
+      "days_seeking_placement": 0,
+      "dispatch_book": "Employed / Active MoR",
+      "last_audit_date": "2026-08-01"
+    },
+    {
+      "trade_id": "CTP-MST-2022-0001",
+      "name": "McCoy Pauley",
+      "tier": "Master Practitioner (MoR)",
+      "license_status": "Active",
+      "standing": "Good Standing",
+      "assigned_jatc_local": "LOCAL-101",
+      "sponsoring_employer": "Militech Critical Infrastructure",
+      "total_verified_hours": 18500.0,
+      "domain_hours": {
+        "D1_PERIMETER_CLOUD": 3800.0,
+        "D2_DETECTION_SOC": 4900.0,
+        "D3_IDENTITY_IAM": 3200.0,
+        "D4_VULN_ATTACK": 3100.0,
+        "D5_DEFENSIVE_GRC": 3500.0
+      },
+      "active_endorsements": ["SE-PKI", "SE-OFF"],
+      "work_modality_preference": "Any Modality",
+      "relocation_willingness": "District Traveler",
+      "security_clearance": "TS/SCI (SCIF Eligible)",
+      "is_seeking_placement": false,
+      "days_seeking_placement": 0,
+      "dispatch_book": "Employed / Active MoR",
+      "last_audit_date": "2026-08-05"
+    }
+  ],
+  "safety_non_concurrences": [
+    {
+      "record_id": "FORM-001-2026-0881",
+      "timestamp": "2026-08-18T14:22:00Z",
+      "submitting_mor_id": "CTP-MST-2024-0004 (Alt Cunningham)",
+      "enterprise_name": "Arasaka Defense Systems",
+      "criticality_tier": "Tier-I Critical Infrastructure",
+      "payload_hash": "sha256:7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069",
+      "refusal_summary": "Bypassed mandatory air-gapped cryptographic signing on orbital telemetry bus.",
+      "executive_override_received": true,
+      "override_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "record_id": "FORM-001-2026-0742",
+      "timestamp": "2026-07-29T09:15:00Z",
+      "submitting_mor_id": "CTP-MST-2022-0001 (McCoy Pauley)",
+      "enterprise_name": "Trauma Team International",
+      "criticality_tier": "Tier-II Life Safety",
+      "payload_hash": "sha256:4a5b6c7d8e9f0123456789abcdef0123456789abcdef0123456789abcdef0123",
+      "refusal_summary": "Unremediated unauthenticated remote firmware update vector violating FDA Section 524B / IEC 81001-5-1 standards.",
+      "executive_override_received": false,
+      "override_hash": null
+    }
+  ]
+}
+
