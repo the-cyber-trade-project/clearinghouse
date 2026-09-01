@@ -3,7 +3,7 @@
     {
       "local_id": "LOCAL-101",
       "name": "Local 101 - Mid-Atlantic & Northeast Hub",
-      "jurisdiction_territory": "Administrative District 1 (DC, MD, VA, DE, PA, NY, NJ, New England)",
+      "jurisdiction_territory": "Administrative District 1 (DC, MD, VA, DE, PA, NY, NJ, New England, Puerto Rico, US Virgin Islands)",
       "zone_1_rate": 85.0,
       "zone_1_examples": "DC Metro, NYC, Philadelphia, Boston",
       "zone_2_rate": 74.0,
@@ -31,7 +31,7 @@
     {
       "local_id": "LOCAL-302",
       "name": "Local 302 - Western & Pacific Hub",
-      "jurisdiction_territory": "Administrative District 3 (WA, OR, CA, NV, ID, AK, HI)",
+      "jurisdiction_territory": "Administrative District 3 (WA, OR, CA, NV, ID, Alaska, Hawaii, Guam, American Samoa, Northern Mariana Islands)",
       "zone_1_rate": 92.0,
       "zone_1_examples": "Seattle-Bellevue, Bay Area, LA/OC, Las Vegas Metro",
       "zone_2_rate": 78.0,

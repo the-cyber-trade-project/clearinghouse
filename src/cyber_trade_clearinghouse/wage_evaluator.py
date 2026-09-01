@@ -33,21 +33,29 @@ class WageStepEvaluator:
         "D5_DEFENSIVE_GRC": 1500.0,
     }
 
-    PLA_CAP_HOURS = 2000.0
+    PLA_CAP_HOURS = 4000.0
 
     @classmethod
     def determine_tier(cls, total_hours: float) -> Dict[str, Any]:
-        if total_hours >= 8000.0:
+        if total_hours >= 12000.0:
+            return {
+                "tier_name": "Master Practitioner (Board Evaluation Eligible)",
+                "wage_step_percentage": 135,
+                "tier_level": 6,
+                "is_journeyman_eligible": True,
+                "hours_to_next": 0.0
+            }
+        elif total_hours >= 8000.0:
             return {
                 "tier_name": "Licensed Journeyman",
                 "wage_step_percentage": 100,
                 "tier_level": 5,
                 "is_journeyman_eligible": True,
-                "hours_to_next": 0.0
+                "hours_to_next": 12000.0 - total_hours
             }
         elif total_hours >= 6000.0:
             return {
-                "tier_name": "Senior Apprentice (Tier 4)",
+                "tier_name": "Advanced Registered Apprentice (Tier 4)",
                 "wage_step_percentage": 80,
                 "tier_level": 4,
                 "is_journeyman_eligible": False,
@@ -55,7 +63,7 @@ class WageStepEvaluator:
             }
         elif total_hours >= 4000.0:
             return {
-                "tier_name": "Intermediate Apprentice (Tier 3)",
+                "tier_name": "Intermediate Registered Apprentice (Tier 3)",
                 "wage_step_percentage": 70,
                 "tier_level": 3,
                 "is_journeyman_eligible": False,
@@ -63,7 +71,7 @@ class WageStepEvaluator:
             }
         elif total_hours >= 2000.0:
             return {
-                "tier_name": "Developing Apprentice (Tier 2)",
+                "tier_name": "Progressing Registered Apprentice (Tier 2)",
                 "wage_step_percentage": 60,
                 "tier_level": 2,
                 "is_journeyman_eligible": False,
