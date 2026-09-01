@@ -96,9 +96,6 @@
       <button class="tab-btn" data-view="view-nonconcurrence" onclick="switchTab('view-nonconcurrence')">
         <span>Safety Refusals (FORM-001)</span>
       </button>
-      <button class="tab-btn" data-view="view-wagesteps" onclick="switchTab('view-wagesteps')">
-        <span>Wage Step Simulator</span>
-      </button>
       <button class="tab-btn" data-view="view-actuarial" onclick="switchTab('view-actuarial')">
         <span>Actuarial Feeds</span>
       </button>
@@ -110,8 +107,8 @@
     <!-- VIEW 1: BUNDLE INGESTION & AUDIT -->
     <section id="view-ingest" class="view-panel active">
       <div class="card">
-        <h2 class="card-title">Cryptographic Submission Bundle Ingestion</h2>
-        <p class="card-subtitle">Ingest operational logbook submission bundles (.json) exported by practitioners. The clearinghouse traverses the continuous SHA-256 Merkle chain from Genesis to Chain Head, verifying zero historical mutations.</p>
+        <h2 class="card-title">Cryptographic Submission Bundle Ingestion &amp; Wage Audit</h2>
+        <p class="card-subtitle">Ingest operational logbook submission bundles (.json) exported by practitioners. The clearinghouse traverses the continuous SHA-256 Merkle chain from Genesis to Chain Head, verifying zero historical mutations, and issues binding statutory Wage Step Elevation Seals.</p>
 
         <div class="dropzone" id="bundle-dropzone">
           <input type="file" id="bundle-file-input" accept=".json,.ctp-bundle" style="display:none;">
@@ -126,6 +123,15 @@
         <div id="bundle-result-card" style="display:none; margin-top:1.5rem;">
           <h3 id="bundle-result-status" style="font-size:1rem; font-weight:700; margin-bottom:0.5rem;"></h3>
           <pre id="bundle-result-details" class="code-box" style="margin-bottom:1rem;"></pre>
+
+          <!-- Integrated Statutory Wage Step Elevation Accreditation Seal -->
+          <div id="bundle-wage-seal" class="seal-certificate" style="margin-bottom:1.5rem;">
+            <div class="seal-header">National Cybersecurity Trade Board &bull; JATC Accreditation Seal</div>
+            <div id="bundle-seal-tier" class="seal-title">DEVELOPING APPRENTICE (TIER 2)</div>
+            <div id="bundle-seal-rate" style="font-size:1rem; font-weight:700; color:var(--accent-emerald); margin-bottom:0.5rem;">60% RJPB STATUTORY WAGE FLOOR</div>
+            <div id="bundle-seal-hours" class="seal-meta">Total Verified Runtime: 2,480 Operational Hours</div>
+            <div id="bundle-seal-hash" class="code-box mono" style="display:inline-block; padding:0.4rem 0.85rem; font-size:0.75rem;">SEAL-ID: NCTB-SEAL-2480-2026-08-31</div>
+          </div>
           
           <h4 style="font-size:0.9rem; font-weight:700; color:#fff; margin-bottom:0.5rem;">Merkle Hash Chain Nodes (Genesis to Chain Head)</h4>
           <div id="merkle-chain-nodes" class="merkle-chain-view"></div>
@@ -302,50 +308,7 @@
       </div>
     </section>
 
-    <!-- VIEW 6: WAGE STEP SIMULATOR -->
-    <section id="view-wagesteps" class="view-panel">
-      <div class="card">
-        <h2 class="card-title">JATC Statutory Wage Step Elevation Simulator</h2>
-        <p class="card-subtitle">Calculates statutory wage floor percentages and generates cryptographic Wage Elevation Seals upon meeting 8,000-hour rotational benchmarks.</p>
-
-        <div style="margin-bottom:1.5rem;">
-          <label style="display:block; font-size:0.85rem; font-weight:700; margin-bottom:0.4rem;">Adjust Verified Runtime Operational Hours:</label>
-          <div style="display:flex; gap:12px; align-items:center;">
-            <input type="range" id="wage-slider" min="0" max="8500" step="100" value="2480" style="flex:1;">
-            <input type="number" id="wage-hours-input" min="0" max="10000" value="2480" class="input-field" style="width:110px;">
-          </div>
-        </div>
-
-        <div class="progress-meter">
-          <div id="wage-progress-fill" class="progress-fill" style="width:31%;"></div>
-        </div>
-
-        <div class="grid-2">
-          <div style="background:var(--bg-secondary); border:1px solid var(--border-color); padding:1rem; border-radius:var(--radius-md);">
-            <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em;">Current Recognized Tier</div>
-            <div id="wage-standing-label" style="font-size:1.1rem; font-weight:700; color:#fff; margin-top:0.25rem;">Developing Apprentice (Tier 2)</div>
-          </div>
-          <div style="background:var(--bg-secondary); border:1px solid var(--border-color); padding:1rem; border-radius:var(--radius-md);">
-            <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em;">Enforced Wage Floor</div>
-            <div id="wage-percentage-label" style="font-size:1.1rem; font-weight:700; color:var(--accent-emerald); margin-top:0.25rem;">60% of Regional Journeyman Prevailing Base (RJPB)</div>
-          </div>
-        </div>
-
-        <div id="elevation-seal-box" class="seal-certificate">
-          <div class="seal-header">National Cybersecurity Trade Board &bull; JATC Accreditation Seal</div>
-          <div id="seal-tier-text" class="seal-title">DEVELOPING APPRENTICE (TIER 2)</div>
-          <div id="seal-wage-text" style="font-size:1rem; font-weight:700; color:var(--accent-emerald); margin-bottom:0.5rem;">60% RJPB STATUTORY WAGE FLOOR</div>
-          <div id="seal-hours-text" class="seal-meta">Total Verified Runtime: 2,480 Operational Hours</div>
-          <div id="seal-hash-text" class="code-box mono" style="display:inline-block; padding:0.4rem 0.85rem; font-size:0.75rem;">SEAL-ID: NCTB-SEAL-2480-2026-08-31</div>
-        </div>
-
-        <div id="wage-next-milestone" style="font-size:0.82rem; color:var(--text-muted); margin-top:1rem; text-align:center;">
-          1,520 hrs remaining to Tier 3 Intermediate Apprentice (70% RJPB).
-        </div>
-      </div>
-    </section>
-
-    <!-- VIEW 7: ACTUARIAL FEEDS -->
+    <!-- VIEW 6: ACTUARIAL FEEDS -->
     <section id="view-actuarial" class="view-panel">
       <div class="card">
         <h2 class="card-title">Underwriter &amp; Actuarial Telemetry API (Pillar VII)</h2>

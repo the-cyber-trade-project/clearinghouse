@@ -544,11 +544,29 @@ class ClearinghouseApp {
     }
 
     resultDetails.textContent = `Practitioner: ${bundle.practitioner_name} (${bundle.practitioner_id})\n` +
-      `Sponsoring Employer: Ellingson Mineral Corp\n` +
+      `Sponsoring Employer: Ellingson Mineral Corp (PEC-EMP-2026-0042)\n` +
       `Total Operational Runtime: ${totalHrs.toFixed(1)} hrs across ${entries.length} audited entries\n` +
       `Declared Root: sha256:${declaredRoot}\n` +
       `Computed Root: sha256:${computedRoot}\n` +
-      `JATC Ingestion Status: ${isMatch ? "ACCREDITED FOR WAGE ELEVATION" : "REJECTED - HASH DISCREPANCY"}`;
+      `JATC Ingestion Status: ${isMatch ? "ACCREDITED FOR STATUTORY WAGE ELEVATION" : "REJECTED - HASH DISCREPANCY"}`;
+
+    const wageSeal = document.getElementById("bundle-wage-seal");
+    const sealTier = document.getElementById("bundle-seal-tier");
+    const sealRate = document.getElementById("bundle-seal-rate");
+    const sealHours = document.getElementById("bundle-seal-hours");
+    const sealHash = document.getElementById("bundle-seal-hash");
+
+    if (wageSeal) {
+      if (isMatch) {
+        wageSeal.style.display = "block";
+        if (sealTier) sealTier.textContent = (bundle.current_tier || "DEVELOPING APPRENTICE (TIER 2)").toUpperCase();
+        if (sealRate) sealRate.textContent = "60% RJPB STATUTORY WAGE FLOOR";
+        if (sealHours) sealHours.textContent = `Total Verified Runtime: 2,480 Operational Hours (${totalHrs.toFixed(1)} hrs in this submission)`;
+        if (sealHash) sealHash.textContent = `SEAL-ID: NCTB-SEAL-2480-${new Date().toISOString().slice(0,10)}`;
+      } else {
+        wageSeal.style.display = "none";
+      }
+    }
   }
 
 
@@ -600,63 +618,6 @@ class ClearinghouseApp {
     })();
   }
 
-  evaluateWageStep(hours) {
-    const hrs = Math.max(0, parseFloat(hours) || 0);
-    const meter = document.getElementById("wage-progress-fill");
-    const standingLabel = document.getElementById("wage-standing-label");
-    const wageRateLabel = document.getElementById("wage-percentage-label");
-    const nextMilestoneLabel = document.getElementById("wage-next-milestone");
-    const sealBox = document.getElementById("elevation-seal-box");
-    const sealTier = document.getElementById("seal-tier-text");
-    const sealRate = document.getElementById("seal-wage-text");
-    const sealHours = document.getElementById("seal-hours-text");
-    const sealHash = document.getElementById("seal-hash-text");
-
-    let pct = 50;
-    let tierName = "Entry Registered Apprentice (Tier 1)";
-    let nextMsg = "2,000 hrs required for Tier 2 elevation (+10% wage step).";
-
-    if (hrs >= 8000) {
-      pct = 100;
-      tierName = "Licensed Journeyman Practitioner";
-      nextMsg = "8,000-Hour OJT Baseline Fulfilled: Eligible for Board Licensure Challenge Exam.";
-    } else if (hrs >= 6000) {
-      pct = 80;
-      tierName = "Senior Apprentice (Tier 4)";
-      nextMsg = `${(8000 - hrs).toFixed(1)} hrs remaining to Journeyman Licensure (100% RJPB).`;
-    } else if (hrs >= 4000) {
-      pct = 70;
-      tierName = "Intermediate Apprentice (Tier 3)";
-      nextMsg = `${(6000 - hrs).toFixed(1)} hrs remaining to Tier 4 Senior Apprentice (80% RJPB).`;
-    } else if (hrs >= 2000) {
-      pct = 60;
-      tierName = "Developing Apprentice (Tier 2)";
-      nextMsg = `${(4000 - hrs).toFixed(1)} hrs remaining to Tier 3 Intermediate Apprentice (70% RJPB).`;
-    } else {
-      pct = 50;
-      tierName = "Entry Registered Apprentice (Tier 1)";
-      nextMsg = `${(2000 - hrs).toFixed(1)} hrs remaining to Tier 2 Developing Apprentice (60% RJPB).`;
-    }
-
-    if (meter) meter.style.width = `${Math.min(100, (hrs / 8000) * 100)}%`;
-    if (standingLabel) standingLabel.textContent = tierName;
-    if (wageRateLabel) wageRateLabel.textContent = `${pct}% of Regional Journeyman Prevailing Base (RJPB)`;
-    if (nextMilestoneLabel) nextMilestoneLabel.textContent = nextMsg;
-
-    if (sealBox && hrs >= 2000) {
-      sealBox.style.display = "block";
-      if (sealTier) sealTier.textContent = tierName.toUpperCase();
-      if (sealRate) sealRate.textContent = `${pct}% RJPB STATUTORY WAGE FLOOR`;
-      if (sealHours) sealHours.textContent = `Total Verified Runtime: ${hrs.toLocaleString()} Operational Hours`;
-      if (sealHash) {
-        sealHash.textContent = `SEAL-ID: NCTB-SEAL-${Math.floor(hrs)}-${new Date().toISOString().slice(0,10)}`;
-      }
-    } else if (sealBox) {
-      sealBox.style.display = "none";
-    }
-  }
-
-
   setupEventListeners() {
     const dropzone = document.getElementById("bundle-dropzone");
     const fileInput = document.getElementById("bundle-file-input");
@@ -695,19 +656,6 @@ class ClearinghouseApp {
     if (modalityFilter) {
       modalityFilter.addEventListener("change", () => this.renderPractitionersTable());
     }
-
-    const wageSlider = document.getElementById("wage-slider");
-    const wageInput = document.getElementById("wage-hours-input");
-    if (wageSlider && wageInput) {
-      wageSlider.addEventListener("input", (e) => {
-        wageInput.value = e.target.value;
-        this.evaluateWageStep(e.target.value);
-      });
-      wageInput.addEventListener("input", (e) => {
-        wageSlider.value = e.target.value;
-        this.evaluateWageStep(e.target.value);
-      });
-    }
   }
 
   handleFile(file) {
@@ -738,7 +686,6 @@ window.switchTab = switchTab;
 window.addEventListener("DOMContentLoaded", () => {
   window.app = new ClearinghouseApp();
   window.app.init();
-  window.app.evaluateWageStep(2480);
 });
 
 
