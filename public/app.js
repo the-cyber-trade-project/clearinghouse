@@ -241,11 +241,25 @@ class ClearinghouseApp {
         zoneSchedule.style.background = "rgba(0,0,0,0.25)";
         zoneSchedule.style.border = "1px solid rgba(255,255,255,0.05)";
         zoneSchedule.style.borderRadius = "var(--radius-sm)";
-        zoneSchedule.style.padding = "6px 8px";
+        zoneSchedule.style.padding = "8px 10px";
         zoneSchedule.style.fontSize = "11px";
         zoneSchedule.style.marginBottom = "8px";
-        zoneSchedule.style.color = "var(--text-muted)";
-        zoneSchedule.innerHTML = `<strong>MSA Zone Schedule:</strong> Zone 1 Metro (${loc.coli_zone_tier.split(" ")[0]}): <span style="color:var(--accent-emerald); font-weight:700;">$${loc.rjpb_hourly_base.toFixed(2)}/hr</span> &bull; Rural Floor (Tier C): <span style="color:var(--text-primary);">$62.00/hr</span>`;
+        zoneSchedule.style.lineHeight = "1.5";
+        zoneSchedule.innerHTML = `
+          <div style="font-weight:700; color:var(--text-primary); margin-bottom:4px;">Local MSA Zone Wage Schedule:</div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:2px;">
+            <span>&bull; Zone 1 (Metro Core - ${loc.zone_1_examples}):</span>
+            <span style="color:var(--accent-emerald); font-weight:700;">$${loc.zone_1_rate.toFixed(2)}/hr</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:2px;">
+            <span>&bull; Zone 2 (Secondary Metro - ${loc.zone_2_examples}):</span>
+            <span style="color:var(--accent-cyan); font-weight:700;">$${loc.zone_2_rate.toFixed(2)}/hr</span>
+          </div>
+          <div style="display:flex; justify-content:space-between;">
+            <span>&bull; Zone 3 (Non-Metro / Rural Floor):</span>
+            <span style="color:var(--text-primary); font-weight:700;">$${loc.zone_3_rate.toFixed(2)}/hr Floor</span>
+          </div>
+        `;
 
         const metaRow = document.createElement("div");
         metaRow.style.display = "flex";

@@ -116,11 +116,17 @@ class RegionalLocalRecord(BaseModel):
     local_id: str
     name: str
     jurisdiction_territory: str
-    coli_zone_tier: str
-    rjpb_hourly_base: float
+    zone_1_rate: float = 85.0
+    zone_2_rate: float = 74.0
+    zone_3_rate: float = 62.0
+    coli_zone_tier: str = "Tier A (High COLI)"
     active_master_count: int = 0
     active_apprentice_count: int = 0
     active_journeyman_count: int = 0
+
+    @property
+    def rjpb_hourly_base(self) -> float:
+        return self.zone_1_rate
 
 
 class EmployerRecord(BaseModel):
