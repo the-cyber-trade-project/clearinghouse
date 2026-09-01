@@ -127,8 +127,10 @@ class EmployerRecord(BaseModel):
     pec_id: str
     name: str
     division: str
-    local_chapter_id: str
+    operating_hubs: str = "District 1 (Local 101)"
     designated_mor: str
+    designated_mor_id: Optional[str] = None
+    mor_status: str = "Full-Time MoR"
     master_count: int = 1
     journeyman_count: int
     apprentice_count: int

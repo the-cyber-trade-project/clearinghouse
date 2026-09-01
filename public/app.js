@@ -186,48 +186,28 @@ class ClearinghouseApp {
     (this.registryData.employers || []).forEach(emp => {
       const tr = document.createElement("tr");
 
-      const tdPec = document.createElement("td");
-      tdPec.className = "mono";
-      tdPec.textContent = emp.pec_id;
+      const tdEnterprise = document.createElement("td");
+      tdEnterprise.innerHTML = `<strong>${emp.name}</strong><br><span class="mono" style="font-size:11px; color:var(--accent-cyan);">${emp.pec_id}</span> &bull; <span style="font-size:11px; color:var(--text-muted);">${emp.division}</span>`;
 
-      const tdName = document.createElement("td");
-      tdName.textContent = emp.name;
-      tdName.style.fontWeight = "600";
-
-      const tdDiv = document.createElement("td");
-      tdDiv.textContent = emp.division;
-
-      const tdLocal = document.createElement("td");
-      tdLocal.className = "mono";
-      tdLocal.textContent = emp.local_chapter_id;
+      const tdHubs = document.createElement("td");
+      tdHubs.innerHTML = `<span style="color:#fff; font-size:12px;">${emp.operating_hubs || "District 1"}</span>`;
 
       const tdMor = document.createElement("td");
-      tdMor.textContent = emp.designated_mor;
+      tdMor.innerHTML = `<strong>${emp.designated_mor}</strong><br><span class="mono" style="font-size:11px; color:var(--text-muted);">${emp.designated_mor_id || "CTP-MST"}</span> &bull; <span class="badge badge-specialty" style="font-size:10px; padding:1px 5px;">${emp.mor_status || "Full-Time MoR"}</span>`;
 
-      const tdHeadcount = document.createElement("td");
-      tdHeadcount.className = "mono";
-      tdHeadcount.textContent = `${emp.master_count || 1} M / ${emp.journeyman_count} J / ${emp.apprentice_count} A`;
+      const totalStaff = (emp.master_count || 1) + emp.journeyman_count + emp.apprentice_count;
+      const tdStaffing = document.createElement("td");
+      tdStaffing.innerHTML = `<span style="font-weight:700; color:#fff;">${totalStaff} Trade Operators</span><br><span style="font-size:11px; color:var(--text-secondary);">${emp.master_count || 1} Masters &bull; ${emp.journeyman_count} Journeymen &bull; ${emp.apprentice_count} Apprentices</span>`;
 
-      const tdRatio = document.createElement("td");
-      const ratioBadge = document.createElement("span");
-      ratioBadge.className = emp.ratio_compliance_score >= 0.95 ? "badge badge-active" : "badge badge-override";
-      ratioBadge.textContent = `${(emp.ratio_compliance_score * 100).toFixed(1)}% (2:1 Std)`;
-      tdRatio.appendChild(ratioBadge);
+      const tdCompliance = document.createElement("td");
+      const badgeClass = emp.ratio_compliance_score >= 0.95 ? "badge badge-active" : "badge badge-override";
+      tdCompliance.innerHTML = `<span class="${badgeClass}">${(emp.ratio_compliance_score * 100).toFixed(1)}% (2:1 Ratio)</span><br><span style="font-size:11px; color:var(--accent-cyan); font-weight:600;">${emp.underwriter_tier}</span>`;
 
-      const tdRisk = document.createElement("td");
-      const riskBadge = document.createElement("span");
-      riskBadge.className = "badge badge-specialty";
-      riskBadge.textContent = emp.underwriter_tier;
-      tdRisk.appendChild(riskBadge);
-
-      tr.appendChild(tdPec);
-      tr.appendChild(tdName);
-      tr.appendChild(tdDiv);
-      tr.appendChild(tdLocal);
+      tr.appendChild(tdEnterprise);
+      tr.appendChild(tdHubs);
       tr.appendChild(tdMor);
-      tr.appendChild(tdHeadcount);
-      tr.appendChild(tdRatio);
-      tr.appendChild(tdRisk);
+      tr.appendChild(tdStaffing);
+      tr.appendChild(tdCompliance);
 
       tbody.appendChild(tr);
     });
@@ -391,17 +371,19 @@ class ClearinghouseApp {
         "pec_registration_id": emp.pec_id,
         "enterprise_name": emp.name,
         "industry_division": emp.division,
-        "local_chapter_jurisdiction": emp.local_chapter_id
+        "operating_jurisdictions": emp.operating_hubs || "District 1"
       },
       "compliance_summary": {
         "active_master_of_record": true,
-        "mor_designation": emp.designated_mor,
+        "mor_designation": `${emp.designated_mor} (${emp.designated_mor_id || 'CTP-MST'})`,
+        "mor_status": emp.mor_status || "Full-Time MoR",
         "supervisory_ratio_compliance_score": emp.ratio_compliance_score,
         "mandatory_ratio_standard": "2:1 on-shift operational supervision",
         "active_workforce_headcount": {
           "master_practitioners": emp.master_count || 1,
           "licensed_journeymen": emp.journeyman_count,
-          "registered_apprentices": emp.apprentice_count
+          "registered_apprentices": emp.apprentice_count,
+          "total_trade_operators": (emp.master_count || 1) + emp.journeyman_count + emp.apprentice_count
         },
         "total_verified_ojt_runtime_hours": emp.total_verified_hours,
         "unresolved_safety_non_concurrences": 0
