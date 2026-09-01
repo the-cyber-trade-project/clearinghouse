@@ -672,16 +672,29 @@ class ClearinghouseApp {
   }
 }
 
-function switchTab(viewId) {
-  document.querySelectorAll(".tab-btn").forEach(btn => {
-    btn.classList.toggle("active", btn.getAttribute("data-view") === viewId);
+function switchWorkspace(wsId) {
+  document.querySelectorAll(".nav-ribbon .tab-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.getAttribute("data-workspace") === wsId);
   });
   document.querySelectorAll(".view-panel").forEach(panel => {
-    panel.classList.toggle("active", panel.id === viewId);
+    panel.classList.toggle("active", panel.id === wsId);
   });
 }
 
-window.switchTab = switchTab;
+function switchSubView(wsId, subId) {
+  const wsEl = document.getElementById(wsId);
+  if (!wsEl) return;
+
+  wsEl.querySelectorAll(".sub-pill-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.getAttribute("data-sub") === subId);
+  });
+  wsEl.querySelectorAll(".sub-view-panel").forEach(panel => {
+    panel.style.display = panel.id === subId ? "block" : "none";
+  });
+}
+
+window.switchWorkspace = switchWorkspace;
+window.switchSubView = switchSubView;
 
 window.addEventListener("DOMContentLoaded", () => {
   window.app = new ClearinghouseApp();
