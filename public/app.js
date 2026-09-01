@@ -198,7 +198,7 @@ class ClearinghouseApp {
 
       const tdHeadcount = document.createElement("td");
       tdHeadcount.className = "mono";
-      tdHeadcount.textContent = `${emp.journeyman_count} Jrn / ${emp.apprentice_count} App`;
+      tdHeadcount.textContent = `${emp.master_count || 1} M / ${emp.journeyman_count} J / ${emp.apprentice_count} A`;
 
       const tdRatio = document.createElement("td");
       const ratioBadge = document.createElement("span");
@@ -252,7 +252,7 @@ class ClearinghouseApp {
         metaRow.style.display = "flex";
         metaRow.style.justifyContent = "space-between";
         metaRow.style.fontSize = "12px";
-        metaRow.innerHTML = `<span style="color:var(--accent-emerald); font-weight:700;">$${loc.rjpb_hourly_base.toFixed(2)}/hr RJPB (${loc.coli_zone_tier})</span><span class="mono" style="color:var(--text-muted);">${loc.active_journeyman_count} Jrn / ${loc.active_apprentice_count} App</span>`;
+        metaRow.innerHTML = `<span style="color:var(--accent-emerald); font-weight:700;">$${loc.rjpb_hourly_base.toFixed(2)}/hr RJPB (${loc.coli_zone_tier})</span><span class="mono" style="color:var(--text-muted);">${loc.active_master_count || 0} M / ${loc.active_journeyman_count} J / ${loc.active_apprentice_count} A</span>`;
 
         card.appendChild(title);
         card.appendChild(territory);
@@ -391,6 +391,7 @@ class ClearinghouseApp {
         "supervisory_ratio_compliance_score": emp.ratio_compliance_score,
         "mandatory_ratio_standard": "2:1 on-shift operational supervision",
         "active_workforce_headcount": {
+          "master_practitioners": emp.master_count || 1,
           "licensed_journeymen": emp.journeyman_count,
           "registered_apprentices": emp.apprentice_count
         },
@@ -721,28 +722,16 @@ class ClearinghouseApp {
   }
 }
 
-function switchDomain(domainId) {
+function switchTab(viewId) {
   document.querySelectorAll(".tab-btn").forEach(btn => {
-    btn.classList.toggle("active", btn.getAttribute("data-domain") === domainId);
+    btn.classList.toggle("active", btn.getAttribute("data-view") === viewId);
   });
   document.querySelectorAll(".view-panel").forEach(panel => {
-    panel.classList.toggle("active", panel.id === domainId);
+    panel.classList.toggle("active", panel.id === viewId);
   });
 }
 
-function switchSubView(domainId, subViewId) {
-  const domainEl = document.getElementById(domainId);
-  if (!domainEl) return;
-  domainEl.querySelectorAll(".pill-btn").forEach(btn => {
-    btn.classList.toggle("active", btn.getAttribute("data-sub") === subViewId);
-  });
-  domainEl.querySelectorAll(".sub-panel").forEach(panel => {
-    panel.classList.toggle("active", panel.id === subViewId);
-  });
-}
-
-window.switchDomain = switchDomain;
-window.switchSubView = switchSubView;
+window.switchTab = switchTab;
 
 window.addEventListener("DOMContentLoaded", () => {
   window.app = new ClearinghouseApp();

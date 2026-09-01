@@ -6,6 +6,7 @@
       "jurisdiction_territory": "District 1 (DC, MD, VA, DE, PA, NY, NJ, New England)",
       "coli_zone_tier": "Tier A (High Cost-of-Living)",
       "rjpb_hourly_base": 85.00,
+      "active_master_count": 48,
       "active_apprentice_count": 142,
       "active_journeyman_count": 286
     },
@@ -15,6 +16,7 @@
       "jurisdiction_territory": "District 2 (IL, IN, OH, MI, WI, MN, IA, MO)",
       "coli_zone_tier": "Tier B (Standard Metropolitan)",
       "rjpb_hourly_base": 72.00,
+      "active_master_count": 32,
       "active_apprentice_count": 98,
       "active_journeyman_count": 194
     },
@@ -24,6 +26,7 @@
       "jurisdiction_territory": "District 3 (WA, OR, CA, NV, ID, AK, HI)",
       "coli_zone_tier": "Tier A (High Cost-of-Living)",
       "rjpb_hourly_base": 92.00,
+      "active_master_count": 56,
       "active_apprentice_count": 184,
       "active_journeyman_count": 340
     },
@@ -33,6 +36,7 @@
       "jurisdiction_territory": "District 4 (TX, LA, MS, AL, GA, FL, TN, NC, SC)",
       "coli_zone_tier": "Tier B (Standard Metropolitan)",
       "rjpb_hourly_base": 78.00,
+      "active_master_count": 38,
       "active_apprentice_count": 115,
       "active_journeyman_count": 220
     },
@@ -42,6 +46,7 @@
       "jurisdiction_territory": "District 5 (CO, UT, AZ, NM, WY, MT, ND, SD, NE, KS)",
       "coli_zone_tier": "Tier C (General & Rural Baseline)",
       "rjpb_hourly_base": 62.00,
+      "active_master_count": 22,
       "active_apprentice_count": 64,
       "active_journeyman_count": 132
     }
@@ -53,6 +58,7 @@
       "division": "Tier-I Critical Infrastructure",
       "local_chapter_id": "LOCAL-302",
       "designated_mor": "Alt Cunningham (CTP-MST-2024-0004)",
+      "master_count": 2,
       "journeyman_count": 6,
       "apprentice_count": 12,
       "ratio_compliance_score": 0.984,
@@ -65,6 +71,7 @@
       "division": "Defense Contractor Enclaves",
       "local_chapter_id": "LOCAL-101",
       "designated_mor": "McCoy Pauley (CTP-MST-2022-0001)",
+      "master_count": 3,
       "journeyman_count": 9,
       "apprentice_count": 18,
       "ratio_compliance_score": 0.991,
@@ -77,6 +84,7 @@
       "division": "Tier-II Life Safety Healthcare Network",
       "local_chapter_id": "LOCAL-204",
       "designated_mor": "Judy Alvarez (CTP-JRN-2025-0411, Proxy)",
+      "master_count": 1,
       "journeyman_count": 4,
       "apprentice_count": 7,
       "ratio_compliance_score": 0.968,
@@ -89,6 +97,7 @@
       "division": "Heavy Industrial & Energy Grid",
       "local_chapter_id": "LOCAL-101",
       "designated_mor": "McCoy Pauley (CTP-MST-2022-0001, Fractional MoR)",
+      "master_count": 1,
       "journeyman_count": 3,
       "apprentice_count": 5,
       "ratio_compliance_score": 0.942,
@@ -101,6 +110,7 @@
       "division": "Advanced Technology & Cloud Infrastructure",
       "local_chapter_id": "LOCAL-101",
       "designated_mor": "Alt Cunningham (CTP-MST-2024-0004, Advisory)",
+      "master_count": 2,
       "journeyman_count": 5,
       "apprentice_count": 10,
       "ratio_compliance_score": 0.975,

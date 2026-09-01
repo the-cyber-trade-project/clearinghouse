@@ -117,6 +117,7 @@ class RegionalLocalRecord(BaseModel):
     jurisdiction_territory: str
     coli_zone_tier: str
     rjpb_hourly_base: float
+    active_master_count: int = 0
     active_apprentice_count: int = 0
     active_journeyman_count: int = 0
 
@@ -127,6 +128,7 @@ class EmployerRecord(BaseModel):
     division: str
     local_chapter_id: str
     designated_mor: str
+    master_count: int = 1
     journeyman_count: int
     apprentice_count: int
     ratio_compliance_score: float
