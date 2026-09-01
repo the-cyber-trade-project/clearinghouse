@@ -87,9 +87,9 @@
       "name": "Trauma Team International",
       "division": "Tier-II Life Safety Healthcare Network",
       "operating_hubs": "Multi-District (Locals 101, 204)",
-      "designated_mor": "McCoy Pauley",
-      "designated_mor_id": "CTP-MST-2022-0001",
-      "mor_status": "Supervisory MoR",
+      "designated_mor": "Brigitte Luyten",
+      "designated_mor_id": "CTP-MST-2023-0012",
+      "mor_status": "Full-Time MoR",
       "master_count": 1,
       "journeyman_count": 4,
       "apprentice_count": 7,
@@ -102,8 +102,8 @@
       "name": "Ellingson Mineral Corp",
       "division": "Heavy Industrial & Energy Grid",
       "operating_hubs": "District 1 (Local 101)",
-      "designated_mor": "McCoy Pauley",
-      "designated_mor_id": "CTP-MST-2022-0001",
+      "designated_mor": "Eugene Belford",
+      "designated_mor_id": "CTP-MST-2021-0008",
       "mor_status": "Fractional MoR (vMoR)",
       "master_count": 1,
       "journeyman_count": 3,
@@ -117,9 +117,9 @@
       "name": "Kang Tao Systems",
       "division": "Advanced Technology & Cloud Infrastructure",
       "operating_hubs": "Multi-District (Locals 101, 302)",
-      "designated_mor": "Alt Cunningham",
-      "designated_mor_id": "CTP-MST-2024-0004",
-      "mor_status": "Advisory MoR",
+      "designated_mor": "Yuki Takahashi",
+      "designated_mor_id": "CTP-MST-2024-0033",
+      "mor_status": "Full-Time MoR",
       "master_count": 2,
       "journeyman_count": 5,
       "apprentice_count": 10,
@@ -137,6 +137,7 @@
       "standing": "Good Standing",
       "assigned_jatc_local": "LOCAL-101",
       "sponsoring_employer": "Ellingson Mineral Corp",
+      "sponsoring_pec_id": "PEC-EMP-2026-0042",
       "total_verified_hours": 2480.0,
       "domain_hours": {
         "D1_PERIMETER_CLOUD": 520.0,
@@ -154,8 +155,7 @@
       "is_seeking_placement": true,
       "days_seeking_placement": 14,
       "dispatch_book": "Book 1 (Resident)",
-      "last_audit_date": "2026-08-15",
-      "sponsoring_pec_id": "PEC-EMP-2026-0042"
+      "last_audit_date": "2026-08-15"
     },
     {
       "trade_id": "CTP-APP-2026-0101",
@@ -165,6 +165,7 @@
       "standing": "Good Standing",
       "assigned_jatc_local": "LOCAL-302",
       "sponsoring_employer": "Militech Critical Infrastructure",
+      "sponsoring_pec_id": "PEC-EMP-2026-0014",
       "total_verified_hours": 1120.0,
       "domain_hours": {
         "D1_PERIMETER_CLOUD": 420.0,
@@ -180,8 +181,7 @@
       "is_seeking_placement": true,
       "days_seeking_placement": 38,
       "dispatch_book": "Book 1 (Resident)",
-      "last_audit_date": "2026-08-10",
-      "sponsoring_pec_id": "PEC-EMP-2026-0014"
+      "last_audit_date": "2026-08-10"
     },
     {
       "trade_id": "CTP-JRN-2025-0411",
@@ -191,6 +191,7 @@
       "standing": "Good Standing",
       "assigned_jatc_local": "LOCAL-204",
       "sponsoring_employer": "Trauma Team International",
+      "sponsoring_pec_id": "PEC-EMP-2026-0028",
       "total_verified_hours": 6120.0,
       "domain_hours": {
         "D1_PERIMETER_CLOUD": 1200.0,
@@ -208,8 +209,7 @@
       "is_seeking_placement": true,
       "days_seeking_placement": 45,
       "dispatch_book": "Book 1 (Resident)",
-      "last_audit_date": "2026-07-25",
-      "sponsoring_pec_id": "PEC-EMP-2026-0028"
+      "last_audit_date": "2026-07-25"
     },
     {
       "trade_id": "CTP-JRN-2024-0192",
@@ -219,6 +219,7 @@
       "standing": "Good Standing",
       "assigned_jatc_local": "LOCAL-101",
       "sponsoring_employer": "Kang Tao Systems",
+      "sponsoring_pec_id": "PEC-EMP-2026-0055",
       "total_verified_hours": 8950.0,
       "domain_hours": {
         "D1_PERIMETER_CLOUD": 1850.0,
@@ -237,8 +238,7 @@
       "is_seeking_placement": true,
       "days_seeking_placement": 21,
       "dispatch_book": "Book 1 (Resident)",
-      "last_audit_date": "2026-07-10",
-      "sponsoring_pec_id": "PEC-EMP-2026-0055"
+      "last_audit_date": "2026-07-10"
     },
     {
       "trade_id": "CTP-MST-2024-0004",
@@ -248,6 +248,7 @@
       "standing": "Good Standing",
       "assigned_jatc_local": "LOCAL-302",
       "sponsoring_employer": "Arasaka Defense Systems",
+      "sponsoring_pec_id": "PEC-EMP-2026-0001",
       "total_verified_hours": 14200.0,
       "domain_hours": {
         "D1_PERIMETER_CLOUD": 2900.0,
@@ -267,8 +268,7 @@
       "is_seeking_placement": false,
       "days_seeking_placement": 0,
       "dispatch_book": "Employed / Active MoR",
-      "last_audit_date": "2026-08-01",
-      "sponsoring_pec_id": "PEC-EMP-2026-0001"
+      "last_audit_date": "2026-08-01"
     },
     {
       "trade_id": "CTP-MST-2022-0001",
@@ -278,6 +278,7 @@
       "standing": "Good Standing",
       "assigned_jatc_local": "LOCAL-101",
       "sponsoring_employer": "Militech Critical Infrastructure",
+      "sponsoring_pec_id": "PEC-EMP-2026-0014",
       "total_verified_hours": 18500.0,
       "domain_hours": {
         "D1_PERIMETER_CLOUD": 3800.0,
@@ -296,8 +297,94 @@
       "is_seeking_placement": false,
       "days_seeking_placement": 0,
       "dispatch_book": "Employed / Active MoR",
-      "last_audit_date": "2026-08-05",
-      "sponsoring_pec_id": "PEC-EMP-2026-0014"
+      "last_audit_date": "2026-08-05"
+    },
+    {
+      "trade_id": "CTP-MST-2023-0012",
+      "name": "Brigitte Luyten",
+      "tier": "Master Practitioner (MoR)",
+      "license_status": "Active",
+      "standing": "Good Standing",
+      "assigned_jatc_local": "LOCAL-204",
+      "sponsoring_employer": "Trauma Team International",
+      "sponsoring_pec_id": "PEC-EMP-2026-0028",
+      "total_verified_hours": 13800.0,
+      "domain_hours": {
+        "D1_PERIMETER_CLOUD": 2400.0,
+        "D2_DETECTION_SOC": 3200.0,
+        "D3_IDENTITY_IAM": 3100.0,
+        "D4_VULN_ATTACK": 2600.0,
+        "D5_DEFENSIVE_GRC": 2500.0
+      },
+      "active_endorsements": [
+        "SE-MED",
+        "SE-ICAM"
+      ],
+      "work_modality_preference": "Hybrid",
+      "relocation_willingness": "Resident Local Only",
+      "security_clearance": "Secret",
+      "is_seeking_placement": false,
+      "days_seeking_placement": 0,
+      "dispatch_book": "Employed / Active MoR",
+      "last_audit_date": "2026-07-20"
+    },
+    {
+      "trade_id": "CTP-MST-2021-0008",
+      "name": "Eugene Belford",
+      "tier": "Master Practitioner (MoR)",
+      "license_status": "Active",
+      "standing": "Good Standing",
+      "assigned_jatc_local": "LOCAL-101",
+      "sponsoring_employer": "Ellingson Mineral Corp",
+      "sponsoring_pec_id": "PEC-EMP-2026-0042",
+      "total_verified_hours": 16400.0,
+      "domain_hours": {
+        "D1_PERIMETER_CLOUD": 3500.0,
+        "D2_DETECTION_SOC": 4200.0,
+        "D3_IDENTITY_IAM": 2900.0,
+        "D4_VULN_ATTACK": 2800.0,
+        "D5_DEFENSIVE_GRC": 3000.0
+      },
+      "active_endorsements": [
+        "SE-ICS",
+        "SE-DFIR"
+      ],
+      "work_modality_preference": "Any Modality",
+      "relocation_willingness": "District Traveler",
+      "security_clearance": "Public Trust / Commercial Unclassified",
+      "is_seeking_placement": false,
+      "days_seeking_placement": 0,
+      "dispatch_book": "Employed / Active MoR",
+      "last_audit_date": "2026-08-12"
+    },
+    {
+      "trade_id": "CTP-MST-2024-0033",
+      "name": "Yuki Takahashi",
+      "tier": "Master Practitioner (MoR)",
+      "license_status": "Active",
+      "standing": "Good Standing",
+      "assigned_jatc_local": "LOCAL-101",
+      "sponsoring_employer": "Kang Tao Systems",
+      "sponsoring_pec_id": "PEC-EMP-2026-0055",
+      "total_verified_hours": 15100.0,
+      "domain_hours": {
+        "D1_PERIMETER_CLOUD": 3200.0,
+        "D2_DETECTION_SOC": 3900.0,
+        "D3_IDENTITY_IAM": 2800.0,
+        "D4_VULN_ATTACK": 2600.0,
+        "D5_DEFENSIVE_GRC": 2600.0
+      },
+      "active_endorsements": [
+        "SE-CLD",
+        "SE-APP"
+      ],
+      "work_modality_preference": "Any Modality",
+      "relocation_willingness": "National / Willing to Relocate",
+      "security_clearance": "Secret",
+      "is_seeking_placement": false,
+      "days_seeking_placement": 0,
+      "dispatch_book": "Employed / Active MoR",
+      "last_audit_date": "2026-07-28"
     }
   ],
   "safety_non_concurrences": [
@@ -315,7 +402,7 @@
     {
       "record_id": "FORM-001-2026-0742",
       "timestamp": "2026-07-29T09:15:00Z",
-      "submitting_mor_id": "CTP-MST-2022-0001 (McCoy Pauley)",
+      "submitting_mor_id": "CTP-MST-2023-0012 (Brigitte Luyten)",
       "enterprise_name": "Trauma Team International",
       "criticality_tier": "Tier-II Life Safety",
       "payload_hash": "sha256:4a5b6c7d8e9f0123456789abcdef0123456789abcdef0123456789abcdef0123",

@@ -193,7 +193,7 @@ class ClearinghouseApp {
       tdHubs.innerHTML = `<span style="color:#fff; font-size:12px;">${emp.operating_hubs || "District 1"}</span>`;
 
       const tdMor = document.createElement("td");
-      tdMor.innerHTML = `<strong>${emp.designated_mor}</strong><br><span class="mono" style="font-size:11px; color:var(--text-muted);">${emp.designated_mor_id || "CTP-MST"}</span> &bull; <span class="badge badge-specialty" style="font-size:10px; padding:1px 5px;">${emp.mor_status || "Full-Time MoR"}</span>`;
+      tdMor.innerHTML = `<div style="font-weight:700; color:#fff;">${emp.designated_mor}</div><div style="display:flex; align-items:center; gap:6px; margin-top:3px; flex-wrap:wrap;"><span class="mono" style="font-size:11px; color:var(--text-muted);">${emp.designated_mor_id || "CTP-MST"}</span><span class="badge badge-specialty" style="font-size:10px; padding:1px 5px;">${emp.mor_status || "Full-Time MoR"}</span></div>`;
 
       const totalStaff = (emp.master_count || 1) + emp.journeyman_count + emp.apprentice_count;
       const tdStaffing = document.createElement("td");
