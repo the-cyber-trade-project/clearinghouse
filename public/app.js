@@ -1,3 +1,13 @@
+function escapeHTML(str) {
+  if (str === null || str === undefined) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 /**
  * Cyber Trade Clearinghouse - Client-Side Demonstration & WebCrypto Verification Engine
  */
@@ -125,7 +135,7 @@ class ClearinghouseApp {
       if (p.is_seeking_placement) {
         tdEmployer.innerHTML = `<span style="color:var(--accent-amber); font-weight:600;">Seeking Placement</span><br><span style="font-size:10px; color:var(--text-muted);">Available for Dispatch</span>`;
       } else {
-        tdEmployer.innerHTML = `<span style="font-weight:600; color:#fff;">${p.sponsoring_employer || "Registered Sponsor"}</span><br><span class="mono" style="font-size:10px; color:var(--accent-cyan);">${p.sponsoring_pec_id || "PEC-EMP"}</span>`;
+        tdEmployer.innerHTML = `<span style="font-weight:600; color:#fff;">${escapeHTML(p.sponsoring_employer || "Registered Sponsor")}</span><br><span class="mono" style="font-size:10px; color:var(--accent-cyan);">${escapeHTML(p.sponsoring_pec_id || "PEC-EMP")}</span>`;
       }
 
       const tdLocal = document.createElement("td");
@@ -151,7 +161,7 @@ class ClearinghouseApp {
       }
 
       const tdModality = document.createElement("td");
-      tdModality.innerHTML = `<span style="color:var(--accent-cyan); font-weight:600;">${p.work_modality_preference || "Any"}</span><br><span style="font-size:10px; color:var(--text-muted);">${p.relocation_willingness || "Local Only"}</span>`;
+      tdModality.innerHTML = `<span style="color:var(--accent-cyan); font-weight:600;">${escapeHTML(p.work_modality_preference || "Any")}</span><br><span style="font-size:10px; color:var(--text-muted);">${escapeHTML(p.relocation_willingness || "Local Only")}</span>`;
 
       const tdStatus = document.createElement("td");
       const statusBadge = document.createElement("span");
@@ -187,13 +197,13 @@ class ClearinghouseApp {
       const tr = document.createElement("tr");
 
       const tdEnterprise = document.createElement("td");
-      tdEnterprise.innerHTML = `<strong>${emp.name}</strong><br><span class="mono" style="font-size:11px; color:var(--accent-cyan);">${emp.pec_id}</span> &bull; <span style="font-size:11px; color:var(--text-muted);">${emp.division}</span>`;
+      tdEnterprise.innerHTML = `<strong>${escapeHTML(emp.name)}</strong><br><span class="mono" style="font-size:11px; color:var(--accent-cyan);">${escapeHTML(emp.pec_id)}</span> &bull; <span style="font-size:11px; color:var(--text-muted);">${escapeHTML(emp.division)}</span>`;
 
       const tdHubs = document.createElement("td");
-      tdHubs.innerHTML = `<span style="color:#fff; font-size:12px;">${emp.operating_hubs || "District 1"}</span>`;
+      tdHubs.innerHTML = `<span style="color:#fff; font-size:12px;">${escapeHTML(emp.operating_hubs || "District 1")}</span>`;
 
       const tdMor = document.createElement("td");
-      tdMor.innerHTML = `<div style="font-weight:700; color:#fff;">${emp.designated_mor}</div><div style="display:flex; align-items:center; gap:6px; margin-top:3px; flex-wrap:wrap;"><span class="mono" style="font-size:11px; color:var(--text-muted);">${emp.designated_mor_id || "CTP-MST"}</span><span class="badge badge-specialty" style="font-size:10px; padding:1px 5px;">${emp.mor_status || "Full-Time MoR"}</span></div>`;
+      tdMor.innerHTML = `<div style="font-weight:700; color:#fff;">${escapeHTML(emp.designated_mor)}</div><div style="display:flex; align-items:center; gap:6px; margin-top:3px; flex-wrap:wrap;"><span class="mono" style="font-size:11px; color:var(--text-muted);">${escapeHTML(emp.designated_mor_id || "CTP-MST")}</span><span class="badge badge-specialty" style="font-size:10px; padding:1px 5px;">${escapeHTML(emp.mor_status || "Full-Time MoR")}</span></div>`;
 
       const totalStaff = (emp.master_count || 1) + emp.journeyman_count + emp.apprentice_count;
       const tdStaffing = document.createElement("td");
@@ -401,7 +411,7 @@ class ClearinghouseApp {
       },
       "compliance_summary": {
         "active_master_of_record": true,
-        "mor_designation": `${emp.designated_mor} (${emp.designated_mor_id || 'CTP-MST'})`,
+        "mor_designation": `${escapeHTML(emp.designated_mor)} (${emp.designated_mor_id || 'CTP-MST'})`,
         "mor_status": emp.mor_status || "Full-Time MoR",
         "supervisory_ratio_compliance_score": emp.ratio_compliance_score,
         "mandatory_ratio_standard": "2:1 on-shift operational supervision",
