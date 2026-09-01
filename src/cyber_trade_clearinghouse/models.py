@@ -102,6 +102,7 @@ class PractitionerRecord(BaseModel):
     standing: str = "Good Standing"
     assigned_jatc_local: str = "LOCAL-101"
     sponsoring_employer: Optional[str] = None
+    sponsoring_pec_id: Optional[str] = None
     work_modality_preference: str = "Any Modality"
     relocation_willingness: str = "Resident Local Only"
     security_clearance: str = "Public Trust / Commercial Unclassified"

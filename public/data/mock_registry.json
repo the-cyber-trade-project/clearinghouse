@@ -5,7 +5,7 @@
       "name": "Local 101 - Mid-Atlantic & Northeast Hub",
       "jurisdiction_territory": "District 1 (DC, MD, VA, DE, PA, NY, NJ, New England)",
       "coli_zone_tier": "Tier A (High Cost-of-Living)",
-      "rjpb_hourly_base": 85.00,
+      "rjpb_hourly_base": 85.0,
       "active_master_count": 48,
       "active_apprentice_count": 142,
       "active_journeyman_count": 286
@@ -15,7 +15,7 @@
       "name": "Local 204 - Midwest & Great Lakes Hub",
       "jurisdiction_territory": "District 2 (IL, IN, OH, MI, WI, MN, IA, MO)",
       "coli_zone_tier": "Tier B (Standard Metropolitan)",
-      "rjpb_hourly_base": 72.00,
+      "rjpb_hourly_base": 72.0,
       "active_master_count": 32,
       "active_apprentice_count": 98,
       "active_journeyman_count": 194
@@ -25,7 +25,7 @@
       "name": "Local 302 - Pacific Northwest & West Coast Hub",
       "jurisdiction_territory": "District 3 (WA, OR, CA, NV, ID, AK, HI)",
       "coli_zone_tier": "Tier A (High Cost-of-Living)",
-      "rjpb_hourly_base": 92.00,
+      "rjpb_hourly_base": 92.0,
       "active_master_count": 56,
       "active_apprentice_count": 184,
       "active_journeyman_count": 340
@@ -35,7 +35,7 @@
       "name": "Local 405 - South & Gulf Coast Hub",
       "jurisdiction_territory": "District 4 (TX, LA, MS, AL, GA, FL, TN, NC, SC)",
       "coli_zone_tier": "Tier B (Standard Metropolitan)",
-      "rjpb_hourly_base": 78.00,
+      "rjpb_hourly_base": 78.0,
       "active_master_count": 38,
       "active_apprentice_count": 115,
       "active_journeyman_count": 220
@@ -45,7 +45,7 @@
       "name": "Local 508 - Mountain West & Plains Hub",
       "jurisdiction_territory": "District 5 (CO, UT, AZ, NM, WY, MT, ND, SD, NE, KS)",
       "coli_zone_tier": "Tier C (General & Rural Baseline)",
-      "rjpb_hourly_base": 62.00,
+      "rjpb_hourly_base": 62.0,
       "active_master_count": 22,
       "active_apprentice_count": 64,
       "active_journeyman_count": 132
@@ -135,14 +135,17 @@
         "D4_VULN_ATTACK": 340.0,
         "D5_DEFENSIVE_GRC": 220.0
       },
-      "active_endorsements": ["SE-APP"],
+      "active_endorsements": [
+        "SE-APP"
+      ],
       "work_modality_preference": "Hybrid",
       "relocation_willingness": "Resident Local Only",
       "security_clearance": "Public Trust / Commercial Unclassified",
       "is_seeking_placement": true,
       "days_seeking_placement": 14,
       "dispatch_book": "Book 1 (Resident)",
-      "last_audit_date": "2026-08-15"
+      "last_audit_date": "2026-08-15",
+      "sponsoring_pec_id": "PEC-EMP-2026-0042"
     },
     {
       "trade_id": "CTP-APP-2026-0101",
@@ -167,7 +170,8 @@
       "is_seeking_placement": true,
       "days_seeking_placement": 38,
       "dispatch_book": "Book 1 (Resident)",
-      "last_audit_date": "2026-08-10"
+      "last_audit_date": "2026-08-10",
+      "sponsoring_pec_id": "PEC-EMP-2026-0014"
     },
     {
       "trade_id": "CTP-JRN-2025-0411",
@@ -185,14 +189,17 @@
         "D4_VULN_ATTACK": 900.0,
         "D5_DEFENSIVE_GRC": 800.0
       },
-      "active_endorsements": ["SE-ICAM"],
+      "active_endorsements": [
+        "SE-ICAM"
+      ],
       "work_modality_preference": "Remote Only",
       "relocation_willingness": "Resident Local Only",
       "security_clearance": "Public Trust / Commercial Unclassified",
       "is_seeking_placement": true,
       "days_seeking_placement": 45,
       "dispatch_book": "Book 1 (Resident)",
-      "last_audit_date": "2026-07-25"
+      "last_audit_date": "2026-07-25",
+      "sponsoring_pec_id": "PEC-EMP-2026-0028"
     },
     {
       "trade_id": "CTP-JRN-2024-0192",
@@ -210,16 +217,19 @@
         "D4_VULN_ATTACK": 1550.0,
         "D5_DEFENSIVE_GRC": 1550.0
       },
-      "active_endorsements": ["SE-CLD", "SE-MED"],
+      "active_endorsements": [
+        "SE-CLD",
+        "SE-MED"
+      ],
       "work_modality_preference": "Any Modality",
       "relocation_willingness": "National / Willing to Relocate",
       "security_clearance": "Secret",
       "is_seeking_placement": true,
       "days_seeking_placement": 21,
       "dispatch_book": "Book 1 (Resident)",
-      "last_audit_date": "2026-07-10"
+      "last_audit_date": "2026-07-10",
+      "sponsoring_pec_id": "PEC-EMP-2026-0055"
     },
-
     {
       "trade_id": "CTP-MST-2024-0004",
       "name": "Alt Cunningham",
@@ -236,14 +246,19 @@
         "D4_VULN_ATTACK": 2400.0,
         "D5_DEFENSIVE_GRC": 2500.0
       },
-      "active_endorsements": ["SE-ICS", "SE-AIML", "SE-DFIR"],
+      "active_endorsements": [
+        "SE-ICS",
+        "SE-AIML",
+        "SE-DFIR"
+      ],
       "work_modality_preference": "Any Modality",
       "relocation_willingness": "National / Willing to Relocate",
       "security_clearance": "TS/SCI (SCIF Eligible)",
       "is_seeking_placement": false,
       "days_seeking_placement": 0,
       "dispatch_book": "Employed / Active MoR",
-      "last_audit_date": "2026-08-01"
+      "last_audit_date": "2026-08-01",
+      "sponsoring_pec_id": "PEC-EMP-2026-0001"
     },
     {
       "trade_id": "CTP-MST-2022-0001",
@@ -261,14 +276,18 @@
         "D4_VULN_ATTACK": 3100.0,
         "D5_DEFENSIVE_GRC": 3500.0
       },
-      "active_endorsements": ["SE-PKI", "SE-OFF"],
+      "active_endorsements": [
+        "SE-PKI",
+        "SE-OFF"
+      ],
       "work_modality_preference": "Any Modality",
       "relocation_willingness": "District Traveler",
       "security_clearance": "TS/SCI (SCIF Eligible)",
       "is_seeking_placement": false,
       "days_seeking_placement": 0,
       "dispatch_book": "Employed / Active MoR",
-      "last_audit_date": "2026-08-05"
+      "last_audit_date": "2026-08-05",
+      "sponsoring_pec_id": "PEC-EMP-2026-0014"
     }
   ],
   "safety_non_concurrences": [
@@ -296,4 +315,3 @@
     }
   ]
 }
-

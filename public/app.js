@@ -98,7 +98,7 @@ class ClearinghouseApp {
     if (filtered.length === 0) {
       const tr = document.createElement("tr");
       const td = document.createElement("td");
-      td.colSpan = 8;
+      td.colSpan = 9;
       td.textContent = "No registered practitioners found matching search filters.";
       td.style.textAlign = "center";
       td.style.color = "var(--text-muted)";
@@ -120,6 +120,13 @@ class ClearinghouseApp {
 
       const tdTier = document.createElement("td");
       tdTier.textContent = p.tier;
+
+      const tdEmployer = document.createElement("td");
+      if (p.is_seeking_placement) {
+        tdEmployer.innerHTML = `<span style="color:var(--accent-amber); font-weight:600;">Seeking Placement</span><br><span style="font-size:10px; color:var(--text-muted);">Available for Dispatch</span>`;
+      } else {
+        tdEmployer.innerHTML = `<span style="font-weight:600; color:#fff;">${p.sponsoring_employer || "Registered Sponsor"}</span><br><span class="mono" style="font-size:10px; color:var(--accent-cyan);">${p.sponsoring_pec_id || "PEC-EMP"}</span>`;
+      }
 
       const tdLocal = document.createElement("td");
       tdLocal.className = "mono";
@@ -160,6 +167,7 @@ class ClearinghouseApp {
       tr.appendChild(tdId);
       tr.appendChild(tdName);
       tr.appendChild(tdTier);
+      tr.appendChild(tdEmployer);
       tr.appendChild(tdLocal);
       tr.appendChild(tdHours);
       tr.appendChild(tdEndorsements);
