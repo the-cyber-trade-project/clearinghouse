@@ -346,10 +346,10 @@ class ClearinghouseApp {
       const b = document.createElement("span");
       if (rec.executive_override_received) {
         b.className = "badge badge-override";
-        b.textContent = "Executive Override Executed (FORM-002)";
+        b.textContent = "Executive Override Executed";
       } else {
         b.className = "badge badge-active";
-        b.textContent = "Active Refusal Notice";
+        b.textContent = "Active Refusal in Effect";
       }
       tdStatus.appendChild(b);
 

@@ -28,7 +28,7 @@ def test_practitioner_registration_and_lookup():
 def test_safety_non_concurrence_recording():
     reg = TradeRegistry()
     rec = SafetyNonConcurrenceRecord(
-        record_id="FORM-001-2026-001",
+        record_id="NSNC-2026-0001",
         timestamp="2026-08-20T10:00:00Z",
         submitting_mor_id="CTP-MST-2024-0004",
         enterprise_name="Apex Defense Systems",
@@ -40,7 +40,7 @@ def test_safety_non_concurrence_recording():
     )
     reg.record_safety_non_concurrence(rec)
 
-    item = reg.get_safety_non_concurrence("FORM-001-2026-001")
+    item = reg.get_safety_non_concurrence("NSNC-2026-0001")
     assert item is not None
     assert item.submitting_mor_id == "CTP-MST-2024-0004"
     assert item.executive_override_received is True
