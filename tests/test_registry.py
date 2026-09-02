@@ -10,7 +10,7 @@ def test_practitioner_registration_and_lookup():
     reg = TradeRegistry()
     p = PractitionerRecord(
         trade_id="CTP-APP-2026-0884",
-        name="Jane Doe",
+        name="Angela Moss",
         tier="Tier 2 Apprentice",
         license_status="Active",
         total_verified_hours=2100.0,
@@ -20,7 +20,7 @@ def test_practitioner_registration_and_lookup():
 
     retrieved = reg.get_practitioner("CTP-APP-2026-0884")
     assert retrieved is not None
-    assert retrieved.name == "Jane Doe"
+    assert retrieved.name == "Angela Moss"
     assert retrieved.tier == "Tier 2 Apprentice"
     assert "SE-APP" in retrieved.active_endorsements
 
