@@ -415,6 +415,129 @@
       "mor_availability": "Not Seeking MoR"
     },
     {
+      "trade_id": "CTP-JRN-2025-0720",
+      "name": "Lucyna Kushinada",
+      "tier": "Licensed Journeyman",
+      "license_status": "Active",
+      "standing": "Good Standing",
+      "assigned_jatc_local": "LOCAL-204",
+      "sponsoring_employer": null,
+      "sponsoring_pec_id": null,
+      "total_verified_hours": 6400.0,
+      "domain_hours": {
+        "D1_PERIMETER_CLOUD": 2000.0,
+        "D2_DETECTION_SOC": 1500.0,
+        "D3_IDENTITY_IAM": 1000.0,
+        "D4_VULN_ATTACK": 1100.0,
+        "D5_DEFENSIVE_GRC": 800.0
+      },
+      "active_endorsements": [
+        "SE-CLD",
+        "SE-OFF"
+      ],
+      "work_modality_preference": "Remote Only",
+      "relocation_willingness": "Regional / Inter-District Traveler",
+      "security_clearance": "Secret Eligible",
+      "is_seeking_placement": true,
+      "days_seeking_placement": 25,
+      "dispatch_book": "Book 2 (Regional)",
+      "last_audit_date": "2026-08-05",
+      "seeking_mor_role": false,
+      "mor_availability": "Not Seeking MoR"
+    },
+    {
+      "trade_id": "CTP-MST-2023-0089",
+      "name": "T-Bug",
+      "tier": "Master Practitioner",
+      "license_status": "Active",
+      "standing": "Good Standing",
+      "assigned_jatc_local": "LOCAL-405",
+      "sponsoring_employer": null,
+      "sponsoring_pec_id": null,
+      "total_verified_hours": 14200.0,
+      "domain_hours": {
+        "D1_PERIMETER_CLOUD": 3200.0,
+        "D2_DETECTION_SOC": 3100.0,
+        "D3_IDENTITY_IAM": 3500.0,
+        "D4_VULN_ATTACK": 2200.0,
+        "D5_DEFENSIVE_GRC": 2200.0
+      },
+      "active_endorsements": [
+        "SE-ICAM",
+        "SE-APP"
+      ],
+      "work_modality_preference": "Hybrid",
+      "relocation_willingness": "Regional / Inter-District Traveler",
+      "security_clearance": "Secret",
+      "is_seeking_placement": true,
+      "days_seeking_placement": 16,
+      "dispatch_book": "Book 2 (Regional)",
+      "last_audit_date": "2026-08-12",
+      "seeking_mor_role": true,
+      "mor_availability": "Fractional MoR (vMoR)"
+    },
+    {
+      "trade_id": "CTP-MST-2020-0012",
+      "name": "Motoko Kusanagi",
+      "tier": "Master Practitioner",
+      "license_status": "Active",
+      "standing": "Good Standing",
+      "assigned_jatc_local": "LOCAL-302",
+      "sponsoring_employer": null,
+      "sponsoring_pec_id": null,
+      "total_verified_hours": 18400.0,
+      "domain_hours": {
+        "D1_PERIMETER_CLOUD": 3800.0,
+        "D2_DETECTION_SOC": 4800.0,
+        "D3_IDENTITY_IAM": 2900.0,
+        "D4_VULN_ATTACK": 3900.0,
+        "D5_DEFENSIVE_GRC": 3000.0
+      },
+      "active_endorsements": [
+        "SE-ICS",
+        "SE-DFIR"
+      ],
+      "work_modality_preference": "Any Modality",
+      "relocation_willingness": "National / Willing to Relocate",
+      "security_clearance": "TS/SCI (SCIF Eligible)",
+      "is_seeking_placement": true,
+      "days_seeking_placement": 36,
+      "dispatch_book": "Book 3 (National)",
+      "last_audit_date": "2026-07-28",
+      "seeking_mor_role": true,
+      "mor_availability": "Full-Time MoR"
+    },
+    {
+      "trade_id": "CTP-APP-2026-0420",
+      "name": "David Martinez",
+      "tier": "Tier 3 Apprentice",
+      "license_status": "Active",
+      "standing": "Good Standing",
+      "assigned_jatc_local": "LOCAL-405",
+      "sponsoring_employer": null,
+      "sponsoring_pec_id": null,
+      "total_verified_hours": 4800.0,
+      "domain_hours": {
+        "D1_PERIMETER_CLOUD": 1500.0,
+        "D2_DETECTION_SOC": 1800.0,
+        "D3_IDENTITY_IAM": 700.0,
+        "D4_VULN_ATTACK": 500.0,
+        "D5_DEFENSIVE_GRC": 300.0
+      },
+      "active_endorsements": [
+        "SE-CLD"
+      ],
+      "work_modality_preference": "Remote Only",
+      "relocation_willingness": "National / Willing to Relocate",
+      "security_clearance": "Public Trust / Commercial Unclassified",
+      "is_seeking_placement": true,
+      "days_seeking_placement": 11,
+      "dispatch_book": "Book 3 (National)",
+      "last_audit_date": "2026-08-16",
+      "seeking_mor_role": false,
+      "mor_availability": "Not Seeking MoR"
+    },
+    {
       "trade_id": "CTP-MST-2024-0004",
       "name": "Alt Cunningham",
       "tier": "Master Practitioner (MoR)",
