@@ -15,9 +15,9 @@ The Clearinghouse operationalizes Pillar IV (Professional Licensure & The Journe
 * **National Practitioner & Public Key Directory:**
   * Authoritative trust root for licensed Journeymen, Master Practitioners of Record (MoR), and Registered Apprentices.
   * Tracks accredited Prior Learning Assessment (PLA) hours (enforcing the 2,000-hour cap) and active specialty endorsements (`SE-APP`, `SE-CLD`, `SE-ICS`, `SE-MED`, `SE-DFIR`, `SE-AIML`).
-* **Participating Employer Council Directory & Ratio Telemetry:**
+* **Participating Employer Council Directory & Compliance Registry:**
   * Authoritative registry of sponsoring enterprises (PEC Directory) and their active Master of Record designations.
-  * Continuously tracks on-shift supervisory ratios against the mandatory 2:1 operational standard.
+  * Tracks JATC-certified supervision ratio compliance scores and statutory training trust standing.
 * **Form FORM-001 Evidentiary Refusal Ledger (Pillar V):**
   * Public immutable ledger recording cryptographic hashes of Notices of Safety Non-Concurrence executed under Pillar V.
   * Binds executive override risk assumption records (Form FORM-002) to establish liability transfer.
@@ -29,8 +29,9 @@ The Clearinghouse operationalizes Pillar IV (Professional Licensure & The Journe
     * Domain 4: Vulnerability & Attack Surface Management (1,500 hrs)
     * Domain 5: Defensive Governance, Risk & Audit / GRC (1,500 hrs)
   * Formally issues tamper-evident Wage Step Elevation Seals for Tiers 1 through 4 (50%, 60%, 70%, 80%, 100% RJPB).
-* **Underwriter & Actuarial Telemetry Feed (Pillar VII):**
-  * Automated zero-knowledge compliance scoring verifying 2:1 on-shift operational supervision ratios and active MoR coverage for CUAAC cyber insurance rate discounts (25% to 35%).
+* **Enterprise Actuarial Standing & MoR Manifest (Pillar VII):**
+  * Authoritative regulatory trust root consumed by CUAAC cyber liability insurers (Travelers, Beazley, Munich Re).
+  * Certifies enterprise legal standing, active licensed Master of Record appointment, and zero unresolved safety non-concurrences. (Shift-by-shift operational ratio proofs are executed internally behind the corporate boundary via `cyber-trade-telemetry`).
 * **Ecosystem Interoperability (Pillar VI Guild Dispatch Hall):**
   * Exposes verified licensure status, active endorsements, and statutory standing consumed upstream by the **Cybersecurity Craft Guild (CCG) Dispatch Hall** (`guild-hall`) for out-of-work queue management and bilateral labor referral.
 

@@ -113,7 +113,7 @@
         <!-- Segmented Controls (Sub-Views) -->
         <div class="sub-nav-ribbon">
           <button class="sub-pill-btn active" data-sub="sub-ingest" onclick="switchSubView('ws-audit', 'sub-ingest')">Bundle Ingestion &amp; Wage Audit</button>
-          <button class="sub-pill-btn" data-sub="sub-actuarial" onclick="switchSubView('ws-audit', 'sub-actuarial')">Actuarial Telemetry Feed (CUAAC)</button>
+          <button class="sub-pill-btn" data-sub="sub-actuarial" onclick="switchSubView('ws-audit', 'sub-actuarial')">Enterprise Actuarial Standing &amp; MoR Manifest</button>
           <button class="sub-pill-btn" data-sub="sub-nonconcurrence" onclick="switchSubView('ws-audit', 'sub-nonconcurrence')">Safety Refusal Ledger</button>
         </div>
 
@@ -147,14 +147,21 @@
           </div>
         </div>
 
-        <!-- SUB-VIEW 1.2: ACTUARIAL TELEMETRY FEED -->
+        <!-- SUB-VIEW 1.2: ENTERPRISE ACTUARIAL STANDING & MoR REGISTRY (CUAAC) -->
         <div id="sub-actuarial" class="sub-view-panel" style="display:none;">
+          <div class="policy-callout" style="margin-bottom:1.25rem;">
+            <div class="policy-callout-title">NCTB Authoritative Regulatory Trust Root vs. Telemetry Edge Gateway</div>
+            <div class="policy-callout-desc">
+              The Clearinghouse does <strong>not</strong> ingest real-time raw SIEM/SOAR logs. Real-time shift logs and 2:1 ratio proofs are processed locally inside the enterprise boundary by the <a href="https://the-cyber-trade-project.github.io/telemetry/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-cyan); text-decoration:underline;">Insurance Telemetry Gateway</a> sidecar. The Clearinghouse certifies the <strong>macro regulatory trust standing</strong>: active Master of Record (MoR) appointment, JATC training trust standing, and verified absence of unresolved Safety Non-Concurrence filings.
+            </div>
+          </div>
+
           <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1rem;">
-            Zero-knowledge ratio compliance feed for cyber insurance underwriters (CUAAC). Confirms active Master of Record (MoR) staffing and 2:1 on-shift supervisory ratios without proprietary corporate data leakage.
+            Authoritative accreditation feed for cyber liability insurers (CUAAC). Confirms active Master of Record (MoR) staffing, JATC-certified supervision ratio ratings, and statutory liability protections.
           </p>
 
           <div style="margin-bottom:1.25rem;">
-            <label style="display:block; font-size:0.85rem; font-weight:700; margin-bottom:0.4rem;">Select Sponsoring Enterprise for Live Telemetry Audit:</label>
+            <label style="display:block; font-size:0.85rem; font-weight:700; margin-bottom:0.4rem;">Select Sponsoring Enterprise for Live Standing &amp; Accreditation Audit:</label>
             <select id="actuarial-employer-select" class="input-field" style="max-width:400px;" onchange="window.app && window.app.renderActuarialManifest(this.value)">
               <option value="PEC-EMP-2026-0001">Arasaka Defense Systems (PEC-EMP-2026-0001)</option>
               <option value="PEC-EMP-2026-0014">Militech Critical Infrastructure (PEC-EMP-2026-0014)</option>
