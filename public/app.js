@@ -28,6 +28,7 @@ class ClearinghouseApp {
     this.renderPractitionersTable();
     this.renderEmployersTable();
     this.renderLocalsAndDispatch();
+    this.renderRequisitionsTable();
     this.renderNonConcurrenceTable();
     this.renderActuarialManifest("PEC-EMP-2026-0001");
     this.setupEventListeners();
@@ -305,7 +306,11 @@ class ClearinghouseApp {
         tdName.innerHTML = `<strong>${p.name}</strong><br><span class="mono" style="font-size:11px; color:var(--text-muted);">${p.trade_id}</span>`;
 
         const tdTier = document.createElement("td");
-        tdTier.textContent = p.tier;
+        let tierHtml = `<strong>${escapeHTML(p.tier)}</strong>`;
+        if (p.seeking_mor_role) {
+          tierHtml += `<br><span class="badge badge-specialty" style="font-size:10px; padding:1px 5px; margin-top:2px;">${escapeHTML(p.mor_availability || "Available as MoR")}</span>`;
+        }
+        tdTier.innerHTML = tierHtml;
 
         const tdLocal = document.createElement("td");
         tdLocal.className = "mono";
@@ -317,8 +322,13 @@ class ClearinghouseApp {
         const tdDays = document.createElement("td");
         tdDays.className = "mono";
         tdDays.style.fontWeight = "700";
-        tdDays.style.color = "var(--accent-amber)";
-        tdDays.textContent = `${p.days_seeking_placement} days`;
+        if (p.days_seeking_placement >= 30) {
+          tdDays.style.color = "var(--accent-rose)";
+          tdDays.innerHTML = `${p.days_seeking_placement} days<br><span class="badge badge-specialty" style="background:rgba(244,63,94,0.15); color:var(--accent-rose); border-color:rgba(244,63,94,0.3); font-size:9px; padding:1px 4px;">Aging Alert (30+d)</span>`;
+        } else {
+          tdDays.style.color = "var(--accent-amber)";
+          tdDays.textContent = `${p.days_seeking_placement} days`;
+        }
 
         const tdBook = document.createElement("td");
         const bookBadge = document.createElement("span");
@@ -338,6 +348,96 @@ class ClearinghouseApp {
       });
     }
   }
+  renderRequisitionsTable() {
+    const tbody = document.getElementById("requisitions-tbody");
+    if (!tbody) return;
+    tbody.textContent = "";
+
+    const reqs = this.registryData.labor_requisitions || [];
+    if (reqs.length === 0) {
+      const tr = document.createElement("tr");
+      const td = document.createElement("td");
+      td.colSpan = 7;
+      td.textContent = "No pending labor requisitions currently on file.";
+      td.style.textAlign = "center";
+      td.style.color = "var(--text-muted)";
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+      return;
+    }
+
+    reqs.forEach(r => {
+      const tr = document.createElement("tr");
+
+      const tdId = document.createElement("td");
+      tdId.className = "mono";
+      tdId.innerHTML = `<strong>${escapeHTML(r.requisition_id)}</strong><br><span style="font-size:10px; color:var(--text-muted);">${escapeHTML(r.date_submitted || "2026-09-01")}</span>`;
+
+      const tdEmp = document.createElement("td");
+      tdEmp.innerHTML = `<strong>${escapeHTML(r.employer_name)}</strong><br><span style="font-size:11px; color:var(--text-secondary);">${escapeHTML(r.requisition_title || "Standard Operational Requisition")}</span>`;
+
+      const tdTier = document.createElement("td");
+      tdTier.textContent = r.required_tier;
+
+      const tdMor = document.createElement("td");
+      if (r.requires_mor) {
+        tdMor.innerHTML = `<span class="badge badge-specialty" style="background:rgba(56,189,248,0.15); color:var(--accent-cyan); border-color:rgba(56,189,248,0.3); font-size:10px; padding:2px 6px;">MoR Mandatory</span><br><span style="font-size:10px; color:var(--text-muted);">${escapeHTML(r.mor_engagement_type)}</span>`;
+      } else {
+        tdMor.innerHTML = `<span style="font-size:11px; color:var(--text-muted);">Standard Staffing</span>`;
+      }
+
+      const tdSpec = document.createElement("td");
+      tdSpec.innerHTML = `<span class="mono" style="font-size:11px; color:var(--accent-emerald);">${escapeHTML(r.required_endorsement || "Core Rotations")}</span><br><span style="font-size:10px; color:var(--text-muted);">${escapeHTML(r.work_modality || "Any Modality")}</span>`;
+
+      const tdLocal = document.createElement("td");
+      tdLocal.className = "mono";
+      tdLocal.textContent = r.target_local_id || "LOCAL-101";
+
+      const tdAction = document.createElement("td");
+      const btn = document.createElement("button");
+      btn.className = "btn btn-primary btn-sm";
+      btn.style.fontSize = "11px";
+      btn.style.padding = "4px 8px";
+      btn.textContent = "Evaluate in Console";
+      btn.onclick = () => {
+        this.loadRequisitionIntoConsole(r);
+      };
+      tdAction.appendChild(btn);
+
+      tr.appendChild(tdId);
+      tr.appendChild(tdEmp);
+      tr.appendChild(tdTier);
+      tr.appendChild(tdMor);
+      tr.appendChild(tdSpec);
+      tr.appendChild(tdLocal);
+      tr.appendChild(tdAction);
+
+      tbody.appendChild(tr);
+    });
+  }
+
+  loadRequisitionIntoConsole(req) {
+    if (typeof window.switchSubView === "function") {
+      window.switchSubView("ws-dispatch", "sub-matcher");
+    }
+
+    const empSelect = document.getElementById("sim-req-employer");
+    const tierSelect = document.getElementById("sim-req-tier");
+    const morSelect = document.getElementById("sim-req-mor");
+    const localSelect = document.getElementById("sim-req-local");
+    const endorsementSelect = document.getElementById("sim-req-endorsement");
+    const modalitySelect = document.getElementById("sim-req-modality");
+
+    if (empSelect) empSelect.value = req.employer_pec_id;
+    if (tierSelect) tierSelect.value = req.required_tier;
+    if (morSelect) morSelect.value = req.requires_mor ? (req.mor_engagement_type || "Full-Time MoR") : "NONE";
+    if (localSelect) localSelect.value = req.target_local_id || "ALL";
+    if (endorsementSelect) endorsementSelect.value = req.required_endorsement || "ANY";
+    if (modalitySelect) modalitySelect.value = req.work_modality || "Any Modality";
+
+    this.simulateDispatch();
+  }
+
 
   renderNonConcurrenceTable() {
     const tbody = document.getElementById("nonconcurrence-tbody");
@@ -441,6 +541,8 @@ class ClearinghouseApp {
   simulateDispatch() {
     const employerSelect = document.getElementById("sim-req-employer");
     const tierSelect = document.getElementById("sim-req-tier");
+    const morSelect = document.getElementById("sim-req-mor");
+    const localSelect = document.getElementById("sim-req-local");
     const endorsementSelect = document.getElementById("sim-req-endorsement");
     const modalitySelect = document.getElementById("sim-req-modality");
     const resultBox = document.getElementById("sim-dispatch-result");
@@ -449,13 +551,42 @@ class ClearinghouseApp {
 
     const empName = employerSelect ? employerSelect.options[employerSelect.selectedIndex].text : "Sponsoring Enterprise";
     const tier = tierSelect ? tierSelect.value : "Licensed Journeyman";
-    const end = endorsementSelect ? endorsementSelect.value : "NONE";
+    const morReq = morSelect ? morSelect.value : "NONE";
+    const localReq = localSelect ? localSelect.value : "ALL";
+    const end = endorsementSelect ? endorsementSelect.value : "ANY";
     const mod = modalitySelect ? modalitySelect.value : "Any Modality";
+
+    const matchesTier = (practitionerTier, requestedTier) => {
+      const pClean = practitionerTier.toLowerCase().trim();
+      const rClean = requestedTier.toLowerCase().trim();
+      for (const num of ["1", "2", "3", "4"]) {
+        const marker = `tier ${num}`;
+        if (rClean.includes(marker)) return pClean.includes(marker);
+      }
+      if (rClean.includes("journeyman")) {
+        return pClean.includes("journeyman") && !pClean.includes("master");
+      }
+      if (rClean.includes("master")) {
+        return pClean.includes("master");
+      }
+      return pClean.includes(rClean);
+    };
 
     const candidates = (this.registryData.practitioners || [])
       .filter(p => p.is_seeking_placement)
-      .filter(p => p.tier.toLowerCase().includes(tier.toLowerCase()))
-      .filter(p => end === "NONE" || (p.active_endorsements && p.active_endorsements.includes(end)))
+      .filter(p => matchesTier(p.tier, tier))
+      .filter(p => {
+        if (morReq === "NONE") return true;
+        if (!p.seeking_mor_role) return false;
+        if (morReq === "Full-Time MoR") return p.mor_availability === "Full-Time MoR" || p.mor_availability === "Any";
+        if (morReq === "Fractional MoR (vMoR)") return p.mor_availability === "Fractional MoR (vMoR)" || p.mor_availability === "Any";
+        return true;
+      })
+      .filter(p => {
+        if (localReq === "ALL") return true;
+        return p.assigned_jatc_local === localReq || p.relocation_willingness === "National / Willing to Relocate";
+      })
+      .filter(p => end === "ANY" || (p.active_endorsements && p.active_endorsements.includes(end)))
       .filter(p => {
         if (mod === "Any Modality") return true;
         if (mod === "Remote") return p.work_modality_preference in { "Remote Only": 1, "Any Modality": 1 };
@@ -463,25 +594,45 @@ class ClearinghouseApp {
         if (mod === "On-Site") return p.work_modality_preference in { "On-Site": 1, "Any Modality": 1, "Hybrid": 1 };
         return true;
       })
-      .sort((a, b) => b.days_seeking_placement - a.days_seeking_placement);
+      .sort((a, b) => {
+        const aSafe = (a.dispatch_book || "").includes("Priority Safe Harbor") ? 1 : 0;
+        const bSafe = (b.dispatch_book || "").includes("Priority Safe Harbor") ? 1 : 0;
+        if (aSafe !== bSafe) return bSafe - aSafe;
+        return b.days_seeking_placement - a.days_seeking_placement;
+      });
 
     resultBox.style.display = "block";
 
     if (candidates.length === 0) {
-      resultBox.innerHTML = `<span style="color:var(--accent-rose); font-weight:700;">[NO CANDIDATE MATCHED]</span>\nZero candidates in the active Out-of-Work queue currently match:\n• Tier: ${tier}\n• Specialty: ${end}\n• Modality: ${mod}\nRequisition placed on Guild Multi-District Open Dispatch Board.`;
+      resultBox.innerHTML = `<span style="color:var(--accent-rose); font-weight:700;">[NO CANDIDATE MATCHED IN LOCAL DISPATCH INVENTORY]</span>\n` +
+        `The Talent Clearinghouse Dispatch Officer reviewed the Out-of-Work queue and determined:\n` +
+        `• Required Tier:        ${tier}\n` +
+        `• MoR Role Requirement: ${morReq}\n` +
+        `• Specialty Endorsement:${end}\n` +
+        `• Modality & Local:     ${mod} | ${localReq}\n\n` +
+        `[DISPATCHER ACTION]: Labor requisition escalated to Multi-District Inter-Local Reciprocal Broadcast (Book 2 Regional Travelers).`;
       return;
     }
 
     const match = candidates[0];
-    resultBox.innerHTML = `<span style="color:var(--accent-emerald); font-weight:700;">[DISPATCH MATCH CONFIRMED &bull; FIRST-IN, FIRST-OUT SENIORITY]</span>\n` +
-      `Requisitioning Employer: ${empName}\n` +
-      `Dispatched Candidate #1: ${match.name} (${match.trade_id})\n` +
-      `Qualification Tier:     ${match.tier} (${match.total_verified_hours.toLocaleString()} verified hours)\n` +
+    const agingAlert = match.days_seeking_placement >= 30
+      ? `\n\n<span style="color:var(--accent-rose); font-weight:700;">[AGING QUEUE INTERVENTION TRIGGERED]</span> Candidate has waited ${match.days_seeking_placement} days on active books. Dispatch Officer prioritized contact to prevent training/career dormancy.`
+      : "";
+
+    const morNotice = morReq !== "NONE"
+      ? `\nStatutory Role:         Designated Master of Record (${morReq})\nPillar VII Warranty:    Qualifies Sponsoring Enterprise for CUAAC Preferred Risk Warranty Rate`
+      : "";
+
+    resultBox.innerHTML = `<span style="color:var(--accent-emerald); font-weight:700;">[DISPATCH REFERRAL SLIP ISSUED &bull; CRAFT GUILD DISPATCH HALL]</span>\n` +
+      `Dispatch Officer:       Desk Officer (JATC Local 101 Referral Desk)\n` +
+      `Requisitioning Employer:${empName}\n` +
+      `Dispatched Candidate #1:${match.name} (${match.trade_id})\n` +
+      `Qualification Tier:     ${match.tier} (${match.total_verified_hours.toLocaleString()} verified hours)${morNotice}\n` +
       `Specialties:            ${match.active_endorsements.join(", ") || "Core Rotations"}\n` +
       `Home Local Chapter:     ${match.assigned_jatc_local}\n` +
       `Modality Preference:    ${match.work_modality_preference} (${match.relocation_willingness})\n` +
-      `Out-of-Work Seniority:  ${match.days_seeking_placement} days on active queue (Top Candidate)\n` +
-      `Commercial Recruiter Fee: $0.00 (Standard JATC Labor Dispatch Accord)`;
+      `Seniority Standing:     ${match.days_seeking_placement} days on active queue (FIFO Rank #1 / ${candidates.length} qualified in pool)\n` +
+      `Commercial Recruiter Fee:$0.00 (Protected under Multi-Employer Collective Bargaining Accord)${agingAlert}`;
   }
 
 

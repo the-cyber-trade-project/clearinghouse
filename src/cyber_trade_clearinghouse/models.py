@@ -110,6 +110,13 @@ class PractitionerRecord(BaseModel):
     days_seeking_placement: int = 0
     dispatch_book: str = "Book 1 (Resident)"
     last_audit_date: Optional[str] = None
+    seeking_mor_role: bool = False
+    mor_availability: str = "Not Seeking MoR"
+
+    @property
+    def is_queue_aging_alert(self) -> bool:
+        """Flags candidate waiting 30+ days for Dispatch Officer proactive intervention."""
+        return self.is_seeking_placement and self.days_seeking_placement >= 30
 
 
 class RegionalLocalRecord(BaseModel):
@@ -153,6 +160,31 @@ class DispatchRequisition(BaseModel):
     target_local_id: str = "LOCAL-101"
     work_modality: str = "Any Modality"
     requires_clearance: Optional[str] = None
+    requisition_title: Optional[str] = None
+    status: str = "PENDING_REVIEW"
+    requires_mor: bool = False
+    mor_engagement_type: Optional[str] = "Any"
+    assigned_officer_id: Optional[str] = None
+    dispatched_trade_id: Optional[str] = None
+    referral_notes: Optional[str] = None
+
+
+class DispatchReferralSlip(BaseModel):
+    referral_id: str
+    requisition_id: str
+    employer_pec_id: str
+    candidate_trade_id: str
+    candidate_name: str
+    tier: str
+    is_mor_designation: bool = False
+    mor_engagement_type: Optional[str] = None
+    dispatching_officer_id: str
+    referral_date: str
+    dispatch_book: str
+    days_on_queue: int
+    wage_step_percentage: int
+    anti_wage_arbitrage_applied: bool = False
+    status: str = "ISSUED"
 
 
 class DispatchResult(BaseModel):

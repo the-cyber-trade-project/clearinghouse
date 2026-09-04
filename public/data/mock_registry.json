@@ -261,6 +261,160 @@
       "last_audit_date": "2026-07-10"
     },
     {
+      "trade_id": "CTP-APP-2025-0551",
+      "name": "Joey Pardella",
+      "tier": "Tier 3 Apprentice",
+      "license_status": "Active",
+      "standing": "Good Standing",
+      "assigned_jatc_local": "LOCAL-101",
+      "sponsoring_employer": null,
+      "sponsoring_pec_id": null,
+      "total_verified_hours": 4650.0,
+      "domain_hours": {
+        "D1_PERIMETER_CLOUD": 950.0,
+        "D2_DETECTION_SOC": 1300.0,
+        "D3_IDENTITY_IAM": 850.0,
+        "D4_VULN_ATTACK": 800.0,
+        "D5_DEFENSIVE_GRC": 750.0
+      },
+      "active_endorsements": [
+        "SE-DFIR"
+      ],
+      "work_modality_preference": "Any Modality",
+      "relocation_willingness": "Resident Local Only",
+      "security_clearance": "Public Trust / Commercial Unclassified",
+      "is_seeking_placement": true,
+      "days_seeking_placement": 18,
+      "dispatch_book": "Book 1 (Resident)",
+      "last_audit_date": "2026-08-12",
+      "seeking_mor_role": false,
+      "mor_availability": "Not Seeking MoR"
+    },
+    {
+      "trade_id": "CTP-APP-2025-0219",
+      "name": "Emmanuel Goldstein",
+      "tier": "Tier 4 Apprentice",
+      "license_status": "Active",
+      "standing": "Good Standing",
+      "assigned_jatc_local": "LOCAL-302",
+      "sponsoring_employer": null,
+      "sponsoring_pec_id": null,
+      "total_verified_hours": 6920.0,
+      "domain_hours": {
+        "D1_PERIMETER_CLOUD": 1400.0,
+        "D2_DETECTION_SOC": 1800.0,
+        "D3_IDENTITY_IAM": 1320.0,
+        "D4_VULN_ATTACK": 1200.0,
+        "D5_DEFENSIVE_GRC": 1200.0
+      },
+      "active_endorsements": [
+        "SE-OFF",
+        "SE-CLD"
+      ],
+      "work_modality_preference": "Remote Only",
+      "relocation_willingness": "National / Willing to Relocate",
+      "security_clearance": "Secret",
+      "is_seeking_placement": true,
+      "days_seeking_placement": 32,
+      "dispatch_book": "Book 1 (Resident)",
+      "last_audit_date": "2026-08-01",
+      "seeking_mor_role": false,
+      "mor_availability": "Not Seeking MoR"
+    },
+    {
+      "trade_id": "CTP-MST-2023-0077",
+      "name": "Kip Dawson",
+      "tier": "Master Practitioner",
+      "license_status": "Active",
+      "standing": "Good Standing",
+      "assigned_jatc_local": "LOCAL-101",
+      "sponsoring_employer": null,
+      "sponsoring_pec_id": null,
+      "total_verified_hours": 13800.0,
+      "domain_hours": {
+        "D1_PERIMETER_CLOUD": 2800.0,
+        "D2_DETECTION_SOC": 3600.0,
+        "D3_IDENTITY_IAM": 2500.0,
+        "D4_VULN_ATTACK": 2400.0,
+        "D5_DEFENSIVE_GRC": 2500.0
+      },
+      "active_endorsements": [
+        "SE-CLD",
+        "SE-APP"
+      ],
+      "work_modality_preference": "Any Modality",
+      "relocation_willingness": "National / Willing to Relocate",
+      "security_clearance": "TS/SCI (SCIF Eligible)",
+      "is_seeking_placement": true,
+      "days_seeking_placement": 41,
+      "dispatch_book": "Book 1 (Resident)",
+      "last_audit_date": "2026-07-22",
+      "seeking_mor_role": true,
+      "mor_availability": "Full-Time MoR"
+    },
+    {
+      "trade_id": "CTP-MST-2022-0045",
+      "name": "Valerie Vega",
+      "tier": "Master Practitioner",
+      "license_status": "Active",
+      "standing": "Good Standing",
+      "assigned_jatc_local": "LOCAL-204",
+      "sponsoring_employer": null,
+      "sponsoring_pec_id": null,
+      "total_verified_hours": 15400.0,
+      "domain_hours": {
+        "D1_PERIMETER_CLOUD": 3200.0,
+        "D2_DETECTION_SOC": 4100.0,
+        "D3_IDENTITY_IAM": 2700.0,
+        "D4_VULN_ATTACK": 2600.0,
+        "D5_DEFENSIVE_GRC": 2800.0
+      },
+      "active_endorsements": [
+        "SE-MED",
+        "SE-ICS"
+      ],
+      "work_modality_preference": "Hybrid",
+      "relocation_willingness": "Resident Local Only",
+      "security_clearance": "Secret",
+      "is_seeking_placement": true,
+      "days_seeking_placement": 19,
+      "dispatch_book": "Book 1 (Resident)",
+      "last_audit_date": "2026-08-14",
+      "seeking_mor_role": true,
+      "mor_availability": "Fractional MoR (vMoR)"
+    },
+    {
+      "trade_id": "CTP-MST-2021-0019",
+      "name": "Paul E. Ceres",
+      "tier": "Master Practitioner",
+      "license_status": "Active",
+      "standing": "Good Standing",
+      "assigned_jatc_local": "LOCAL-101",
+      "sponsoring_employer": null,
+      "sponsoring_pec_id": null,
+      "total_verified_hours": 16900.0,
+      "domain_hours": {
+        "D1_PERIMETER_CLOUD": 3500.0,
+        "D2_DETECTION_SOC": 4500.0,
+        "D3_IDENTITY_IAM": 3000.0,
+        "D4_VULN_ATTACK": 2900.0,
+        "D5_DEFENSIVE_GRC": 3000.0
+      },
+      "active_endorsements": [
+        "SE-PKI",
+        "SE-AIML"
+      ],
+      "work_modality_preference": "Remote Only",
+      "relocation_willingness": "Resident Local Only",
+      "security_clearance": "Public Trust / Commercial Unclassified",
+      "is_seeking_placement": true,
+      "days_seeking_placement": 52,
+      "dispatch_book": "Book 1 (Resident)",
+      "last_audit_date": "2026-07-11",
+      "seeking_mor_role": false,
+      "mor_availability": "Not Seeking MoR"
+    },
+    {
       "trade_id": "CTP-MST-2024-0004",
       "name": "Alt Cunningham",
       "tier": "Master Practitioner (MoR)",
@@ -429,6 +583,53 @@
       "refusal_summary": "Unremediated unauthenticated remote firmware update vector violating FDA Section 524B / IEC 81001-5-1 standards.",
       "executive_override_received": false,
       "override_hash": null
+    }
+  ],
+  "labor_requisitions": [
+    {
+      "requisition_id": "REQ-2026-0891",
+      "employer_pec_id": "PEC-EMP-2026-0042",
+      "employer_name": "Ellingson Mineral Corp",
+      "requisition_title": "Enterprise Master of Record & Industrial Grid Stamping Authority",
+      "required_tier": "Master Practitioner",
+      "requires_mor": true,
+      "mor_engagement_type": "Full-Time MoR",
+      "required_endorsement": "ANY",
+      "target_local_id": "LOCAL-101",
+      "work_modality": "Any Modality",
+      "requires_clearance": "Public Trust / Commercial Unclassified",
+      "status": "PENDING_REVIEW",
+      "date_submitted": "2026-08-30"
+    },
+    {
+      "requisition_id": "REQ-2026-0892",
+      "employer_pec_id": "PEC-EMP-2026-0028",
+      "employer_name": "Trauma Team International",
+      "requisition_title": "Digital Forensics & Incident Response Specialist",
+      "required_tier": "Tier 3 Apprentice",
+      "requires_mor": false,
+      "mor_engagement_type": "None",
+      "required_endorsement": "SE-DFIR",
+      "target_local_id": "LOCAL-101",
+      "work_modality": "Any Modality",
+      "requires_clearance": "Public Trust / Commercial Unclassified",
+      "status": "PENDING_REVIEW",
+      "date_submitted": "2026-09-01"
+    },
+    {
+      "requisition_id": "REQ-2026-0893",
+      "employer_pec_id": "PEC-EMP-2026-0001",
+      "employer_name": "Arasaka Defense Systems",
+      "requisition_title": "Red Team & Offensive Emulation Specialist",
+      "required_tier": "Tier 4 Apprentice",
+      "requires_mor": false,
+      "mor_engagement_type": "None",
+      "required_endorsement": "SE-OFF",
+      "target_local_id": "LOCAL-302",
+      "work_modality": "Remote Only",
+      "requires_clearance": "Secret",
+      "status": "PENDING_REVIEW",
+      "date_submitted": "2026-09-02"
     }
   ]
 }

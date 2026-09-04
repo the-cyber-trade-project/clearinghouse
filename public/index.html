@@ -272,7 +272,8 @@
         <div class="sub-nav-ribbon">
           <button class="sub-pill-btn active" data-sub="sub-locals" onclick="switchSubView('ws-dispatch', 'sub-locals')">Regional Districts &amp; MSA Wage Tiers</button>
           <button class="sub-pill-btn" data-sub="sub-queue" onclick="switchSubView('ws-dispatch', 'sub-queue')">FIFO Out-of-Work Queue</button>
-          <button class="sub-pill-btn" data-sub="sub-matcher" onclick="switchSubView('ws-dispatch', 'sub-matcher')">Requisition Dispatch Simulator</button>
+          <button class="sub-pill-btn" data-sub="sub-reqs" onclick="switchSubView('ws-dispatch', 'sub-reqs')">Employer Labor Requisitions</button>
+          <button class="sub-pill-btn" data-sub="sub-matcher" onclick="switchSubView('ws-dispatch', 'sub-matcher')">Dispatch Officer Console</button>
         </div>
 
         <!-- SUB-VIEW 3.1: REGIONAL DISTRICTS & COLI -->
@@ -282,13 +283,16 @@
 
         <!-- SUB-VIEW 3.2: OUT-OF-WORK QUEUE -->
         <div id="sub-queue" class="sub-view-panel" style="display:none;">
+          <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1rem;">
+            Objective candidate roster ordered strictly by First-In, First-Out (FIFO) chronological seniority. Candidates waiting 30+ days trigger an <strong>Aging Queue Alert</strong> for Dispatch Officer intervention. Direct employer resume browsing is strictly prohibited under Guild labor covenants.
+          </p>
           <div class="table-wrap">
             <table class="data-table">
               <thead>
                 <tr>
                   <th>Queue Pos</th>
                   <th>Practitioner</th>
-                  <th>Tier</th>
+                  <th>Tier &amp; MoR Availability</th>
                   <th>Home Local</th>
                   <th>Modality &amp; Mobility</th>
                   <th>Days Seeking</th>
@@ -300,29 +304,84 @@
           </div>
         </div>
 
-        <!-- SUB-VIEW 3.3: REQUISITION MATCHING SIMULATOR -->
+        <!-- SUB-VIEW 3.3: EMPLOYER LABOR REQUISITIONS -->
+        <div id="sub-reqs" class="sub-view-panel" style="display:none;">
+          <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1rem;">
+            Pending labor requisitions submitted by Participating Employer Council (PEC) members. In accordance with the Craft Guild Dispatch Accord, the neutral Talent Clearinghouse Dispatch Officer evaluates candidates and executes referrals without direct employer cherry-picking.
+          </p>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Requisition ID</th>
+                  <th>Employer &amp; Title</th>
+                  <th>Required Tier</th>
+                  <th>MoR Requirement</th>
+                  <th>Specialty &amp; Modality</th>
+                  <th>Target Local</th>
+                  <th>Status &amp; Action</th>
+                </tr>
+              </thead>
+              <tbody id="requisitions-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SUB-VIEW 3.4: DISPATCH OFFICER CONSOLE -->
         <div id="sub-matcher" class="sub-view-panel" style="display:none;">
           <div style="background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; border-bottom:1px solid var(--border-color); padding-bottom:0.75rem; flex-wrap:wrap; gap:10px;">
+              <div>
+                <strong style="color:var(--accent-cyan); font-size:14px; text-transform:uppercase; letter-spacing:0.05em;">Dispatch Officer Intermediary Console</strong>
+                <p style="font-size:12px; color:var(--text-muted); margin-top:2px;">Neutral referral administration, FIFO candidate evaluation, aging alerts, and MoR statutory matching.</p>
+              </div>
+              <span class="badge badge-active" style="font-size:11px;">Desk: Local 101 Dispatcher</span>
+            </div>
+
             <div class="grid-2" style="gap:10px; margin-bottom:10px;">
               <div>
                 <label style="font-size:11px; color:var(--text-muted); display:block; margin-bottom:4px;">Requisitioning Sponsoring Employer:</label>
                 <select id="sim-req-employer" class="input-field" style="width:100%;">
-                  <option value="PEC-EMP-2026-0055">Kang Tao Systems (District 1 - Local 101)</option>
+                  <option value="PEC-EMP-2026-0042">Ellingson Mineral Corp (District 1 - Local 101)</option>
+                  <option value="PEC-EMP-2026-0028">Trauma Team International (District 2 - Local 204)</option>
                   <option value="PEC-EMP-2026-0001">Arasaka Defense Systems (District 3 - Local 302)</option>
                   <option value="PEC-EMP-2026-0014">Militech Critical Infrastructure (District 1 - Local 101)</option>
-                  <option value="PEC-EMP-2026-0028">Trauma Team International (District 2 - Local 204)</option>
-                  <option value="PEC-EMP-2026-0042">Ellingson Mineral Corp (District 1 - Local 101)</option>
+                  <option value="PEC-EMP-2026-0055">Kang Tao Systems (District 1 - Local 101)</option>
                 </select>
               </div>
               <div>
                 <label style="font-size:11px; color:var(--text-muted); display:block; margin-bottom:4px;">Required Qualification Tier:</label>
                 <select id="sim-req-tier" class="input-field" style="width:100%;">
+                  <option value="Master Practitioner">Master Practitioner</option>
                   <option value="Licensed Journeyman">Licensed Journeyman</option>
-                  <option value="Tier 2 Apprentice">Tier 2 Apprentice</option>
-                  <option value="Tier 1 Apprentice">Tier 1 Apprentice</option>
+                  <option value="Tier 4 Apprentice">Tier 4 Apprentice (Advanced - 80% RJPB)</option>
+                  <option value="Tier 3 Apprentice">Tier 3 Apprentice (Intermediate - 70% RJPB)</option>
+                  <option value="Tier 2 Apprentice">Tier 2 Apprentice (Progressing - 60% RJPB)</option>
+                  <option value="Tier 1 Apprentice">Tier 1 Apprentice (Entry - 50% RJPB)</option>
                 </select>
               </div>
             </div>
+
+            <div class="grid-2" style="gap:10px; margin-bottom:10px;">
+              <div>
+                <label style="font-size:11px; color:var(--text-muted); display:block; margin-bottom:4px;">Master of Record (MoR) Statutory Requirement:</label>
+                <select id="sim-req-mor" class="input-field" style="width:100%;">
+                  <option value="NONE">General Practitioner (No MoR Designation Required)</option>
+                  <option value="Full-Time MoR">Full-Time Master of Record (Dedicated Enterprise MoR)</option>
+                  <option value="Fractional MoR (vMoR)">Fractional Master of Record (vMoR Retainer)</option>
+                </select>
+              </div>
+              <div>
+                <label style="font-size:11px; color:var(--text-muted); display:block; margin-bottom:4px;">Target Local Chapter:</label>
+                <select id="sim-req-local" class="input-field" style="width:100%;">
+                  <option value="ALL">All Locals (Multi-District National Pool)</option>
+                  <option value="LOCAL-101">Local 101 - Mid-Atlantic Hub</option>
+                  <option value="LOCAL-204">Local 204 - Great Lakes Manufacturing</option>
+                  <option value="LOCAL-302">Local 302 - Pacific Technology &amp; Defense</option>
+                </select>
+              </div>
+            </div>
+
             <div class="grid-2" style="gap:10px; margin-bottom:12px;">
               <div>
                 <label style="font-size:11px; color:var(--text-muted); display:block; margin-bottom:4px;">Required Specialty Endorsement:</label>
@@ -349,7 +408,11 @@
                 </select>
               </div>
             </div>
-            <button class="btn btn-primary btn-sm" onclick="window.app && window.app.simulateDispatch()">Execute FIFO Dispatch Referral</button>
+
+            <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+              <button class="btn btn-primary btn-sm" onclick="window.app && window.app.simulateDispatch()">Evaluate FIFO Queue &amp; Issue Referral Slip</button>
+              <span style="font-size:11px; color:var(--text-muted);">Neutral Dispatcher verifies qualification and aging alerts prior to bilateral referral.</span>
+            </div>
             
             <div id="sim-dispatch-result" style="display:none; margin-top:12px;" class="code-box"></div>
           </div>
