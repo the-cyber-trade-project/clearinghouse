@@ -132,7 +132,7 @@ class ClearinghouseApp {
 
       const tdEmployer = document.createElement("td");
       if (p.is_seeking_placement) {
-        tdEmployer.innerHTML = `<span style="color:var(--accent-amber); font-weight:600;">Seeking Placement</span><br><span style="font-size:10px; color:var(--text-muted);">Available for Dispatch</span>`;
+        tdEmployer.innerHTML = `<span style="color:var(--accent-amber); font-weight:600;">Seeking Placement</span><br><span style="font-size:10px; color:var(--text-muted);">Available for Referral</span>`;
       } else {
         tdEmployer.innerHTML = `<span style="font-weight:600; color:#fff;">${escapeHTML(p.sponsoring_employer || "Registered Sponsor")}</span><br><span class="mono" style="font-size:10px; color:var(--accent-cyan);">${escapeHTML(p.sponsoring_pec_id || "PEC-EMP")}</span>`;
       }
@@ -166,7 +166,7 @@ class ClearinghouseApp {
       const statusBadge = document.createElement("span");
       if (p.is_seeking_placement) {
         statusBadge.className = "badge badge-override";
-        statusBadge.textContent = `Seeking (${p.days_seeking_placement}d)`;
+        statusBadge.textContent = `Available (${p.days_seeking_placement}d)`;
       } else {
         statusBadge.className = "badge badge-active";
         statusBadge.textContent = "Active / Employed";
